@@ -11,6 +11,7 @@
 | Integración API | `tests/integration/test_api.py` | Flujo completo por HTTP, códigos 401/403/404/409/422, flotilla con refacción y facturación, ampliación, falla adicional, plazos, disputas, indicadores y OpenAPI | SQLite en memoria o PostgreSQL (`TEST_DATABASE_URL`) |
 | Integración web | `tests/integration/test_web.py` | Flujo por roles en la interfaz, acciones visibles por rol y estado, mensajes del negocio y que la interfaz **no muestre código** (ADR-014) | SQLite en memoria |
 | Persistencia | `tests/integration/test_persistencia.py` | Guardar y recuperar el Aggregate completo sin perder tipos (enums, `Decimal`, fechas, Value Objects) | SQLite o PostgreSQL |
+| Transacciones y servicio externo | `tests/integration/test_transacciones_y_mocks.py`, `tests/unit/test_calculos_de_cotizacion.py` | Commit y rollback con SQLAlchemy; aviso al cliente con `unittest.mock.Mock` (llamada exacta y falla del proveedor); cálculo de totales | `Mock` |
 | Paquete docente | `tests/paquete_docente/test_paquete_docente.py` | Importación de los CSV, totales con `Decimal`, 120 casos y 20 transiciones ejecutados con el dominio del BRD | Adaptador `src/infrastructure/paquete_docente.py` |
 
 Los nombres de las pruebas por historia coinciden con la columna *Prueba de aceptación* de `docs/architecture/Trazabilidad.md`.
@@ -38,7 +39,13 @@ Ejecución local del **05/11/2026** con Python 3.14.6 y SQLite en memoria:
 
 **Pendiente de verificar (no ejecutado en esta máquina):** las pruebas contra PostgreSQL, Docker Compose y GitHub Actions. Docker no está instalado en el equipo donde se generó esta evidencia; el workflow `ci.yml` las ejecuta al subir el repositorio.
 
-## 4. Defectos encontrados por las pruebas y corregidos
+## 4. Evidencia 9 (Unidad 5)
+
+- Matriz: `E9_matriz_casos_prueba.csv` (24 casos de 8 reglas del BRD, 24 en PASS en la corrida del 05/11/2026 con 369 pruebas aprobadas y 93.40 % de cobertura).
+- Documento: `Evidencia_9_Unidad_5_AutoFixPro.docx`.
+- Reporte de cobertura HTML: `cobertura_html/index.html`.
+
+## 5. Defectos encontrados por las pruebas y corregidos
 
 | Prueba | Defecto | Corrección |
 |---|---|---|

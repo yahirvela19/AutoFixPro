@@ -3,6 +3,8 @@
 **Equipo 6 · Componentes de Lógica de Negocio · PIA**
 Josue Yahir Vela Hernandez · Osweld Omar Lozano Martínez · Sylvia Yadira González Parra
 
+**Demo en línea:** <https://autofixpro-m04z.onrender.com> · **Repositorio:** <https://github.com/yahirvela19/AutoFixPro>
+
 Aplicación que digitaliza el proceso de servicio de AutoFix Pro: registro de ingreso, diagnóstico, cotización, **autorización digital por trabajo**, reparación, refacciones, entrega, cobro y facturación consolidada de flotillas. Todo el lenguaje de la aplicación sigue el glosario del BRD. Los datos son ficticios.
 
 | Documento | Contenido |
@@ -101,7 +103,8 @@ En la interfaz se elige el rol en la pantalla de inicio. En la API se usa el tok
 - **Render:** el archivo [render.yaml](render.yaml) crea la aplicación Docker y una base PostgreSQL. Al conectar el repositorio, Render usa `DATABASE_URL` automáticamente.
 - **CD:** el job `despliegue` del workflow llama al *deploy hook* de Render si existe el secreto `RENDER_DEPLOY_HOOK`.
 - **Plazo de 24 horas (ADR-013):** el workflow `plazos-de-respuesta.yml` corre cada 15 minutos. Requiere los secretos `URL_APP` (URL pública) y `TOKEN_GERENTE` (`gerente-demo` o el token configurado).
-- URL del sistema desplegado: *pendiente de publicar por el equipo*.
+- **Sistema desplegado:** <https://autofixpro-m04z.onrender.com> · Swagger UI: <https://autofixpro-m04z.onrender.com/docs>
+- En el plan gratuito de Render la app se suspende sin uso; la primera visita puede tardar alrededor de un minuto.
 
 ## Alcance y limitaciones
 

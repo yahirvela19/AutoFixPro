@@ -67,7 +67,27 @@ La columna **Prueba de aceptación** contiene el nombre de la prueba automatizad
 | RN-15 | `Disputa` y su ciclo `Abierta` → `Resuelta` | `Disputa` | — |
 | RN-16 | `EvidenciaFotografica` | `OrdenDeServicio` | — |
 
-## 4. Cobertura
+## 4. Paquete de pruebas del docente → BRD → componente → prueba
+
+El paquete (`datos/paquete_docente/`) es un modelo de pruebas propuesto que no sustituye al BRD. Cada regla se liga con su regla del BRD o se marca **sin equivalente**. Las diferencias se explican en `docs/testing/Diferencias_paquete_docente.md` y los resultados están en `docs/testing/resultados_casos_prueba.csv` y `resultados_transiciones.csv`. Las pruebas están en `tests/paquete_docente/test_paquete_docente.py`.
+
+| Regla o caso del paquete | Regla del BRD | Componente | Prueba (aprobada) |
+|---|---|---|---|
+| Importar actores, catálogo, operaciones y detalle con claves foráneas | — (requisito del paquete) | `leer_paquete()` en `src/infrastructure/paquete_docente.py` | `test_paquete_se_importa_con_claves_foraneas` |
+| Total = Σ(precio × cantidad) con `Decimal` | RN-11 (importes cobrables), Value Object `Monto` | `Operacion.total`, `Monto` | `test_total_con_decimal` |
+| `puede_procesarse` → detalle no vacío | US-04 / RN-01: la cotización requiere al menos un trabajo | `DetalleNoVacioSpecification`, `OrdenDeServicio.generar_cotizacion()` | `test_casos_de_prueba_del_paquete[AUT-T…]` |
+| `puede_procesarse` → autorización | RN-03: solo lo autorizado se ejecuta | `AutorizacionRegistradaSpecification`, `AutorizarTrabajosService` | `test_casos_de_prueba_del_paquete[AUT-T…]` |
+| `puede_procesarse` → actor activo | **Sin equivalente** (el BRD no tiene cliente inactivo) | `ActorActivoSpecification` (solo en el adaptador) | `test_casos_de_prueba_del_paquete[AUT-T…]` |
+| `beneficio_referencia`: preferente AND total ≥ 1500 AND NOT promoción | **Sin equivalente** | `beneficio_de_referencia()` con `y()` y `no()` | `test_casos_de_prueba_del_paquete[AUT-B…]`, `test_composicion_de_specifications_del_paquete` |
+| Disponibilidad: recurso no habilitado o cantidad mayor a la existencia | RN-07 / RN-08: refacción sin existencia | `MarcarEsperaDeRefaccionService` → «En espera de refacción» | `test_recurso_no_habilitado_deja_la_orden_en_espera_de_refaccion` |
+| Acción `aprobar` | RN-02, RN-03 (US-05/06) | `AutorizarTrabajosService` → «En reparación» | `test_transiciones_del_paquete[AUT-S005…]` |
+| Acción `completar` | RN-11, D1 (US-08, US-19) | `EjecutarTrabajoService`, `CerrarOrdenDeServicioService` → «Cerrado» | `test_transiciones_del_paquete[AUT-S001…]` |
+| Acción `repetir_aprobacion` | RN-04: la decisión no se modifica | `DecisionYaRegistrada` | `test_transiciones_del_paquete[AUT-S003…]` |
+| Acción `saltar_estado` | RN-01 y máquina de estados (ADR-006) | `OrdenCotizableSpecification` → `TransicionNoPermitida` | `test_transiciones_del_paquete[AUT-S004…]` |
+| Acción `cancelar` desde RECIBIDA | **Sin equivalente**: el BRD solo cierra sin reparación tras un rechazo total (RN-10) | `transicionar_orden()` → `TransicionNoPermitida` | `test_transiciones_del_paquete[AUT-S002…]` |
+| Domain Events en cada transición | Arquitectura §3.3 | Columna `evento_o_excepcion` de `resultados_transiciones.csv` | `test_resultados_se_escriben_en_csv` |
+
+## 5. Cobertura
 
 - Las 24 historias tienen regla o indicador, tarea BPMN o anotación, elemento de dominio, caso de uso, endpoint y al menos una prueba automatizada aprobada.
 - Las 16 reglas están garantizadas en al menos un Aggregate o Specification.

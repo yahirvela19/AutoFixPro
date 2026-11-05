@@ -1,0 +1,307 @@
+{% extends "base.html" %}
+{% block titulo %}Orden {{ orden.folio }}{% endblock %}
+{% macro filas_trabajo(prefijo) %}
+  <div class="tabla-contenedor">
+  <table class="tabla tabla-formulario">
+    <thead><tr><th>Trabajo</th><th>Cantidad</th><th>Precio unitario (MXN)</th></tr></thead>
+    <tbody>
+    {% for i in range(1, 6) %}
+      <tr>
+        <td><input name="descripcion_{{ i }}" {% if i == 1 %}required{% endif %} placeholder="{{ 'Ej. Cambio de balatas delanteras' if i == 1 else 'Opcional' }}"></td>
+        <td><input name="cantidad_{{ i }}" type="number" min="1" value="1"></td>
+        <td><input name="precio_{{ i }}" type="number" min="0.01" step="0.01" placeholder="0.00"></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endmacro %}
+{% macro confirmacion() %}
+  <label class="casilla casilla-confirmacion"><input type="checkbox" name="confirmo" value="si" required>
+    Confirmo que esta es mi decisión. Quedará registrada como evidencia digital y no se podrá modificar.</label>
+{% endmacro %}
+{% block contenido %}
+<p class="migas"><a href="/">← Volver a las órdenes</a></p>
+<section class="tarjeta cabecera-orden">
+  <div>
+    <h1>Orden {{ orden.folio }}</h1>
+    <p class="subtitulo">{{ orden.cliente.nombre }} · {{ orden.cliente.tipo }} — {{ orden.vehiculo.descripcion }}</p>
+    <p class="subtitulo">Ingreso: {{ orden.fecha_ingreso }}{% if orden.nueva_fecha_estimada %} · <strong>Nueva fecha estimada de entrega: {{ orden.nueva_fecha_estimada }}</strong>{% endif %}</p>
+  </div>
+  <span class="estado estado-grande estado-{{ orden.estado | estilo }}">{{ orden.estado }}</span>
+</section>
+<div class="siguiente-paso"><strong>Siguiente paso:</strong> {{ siguiente_paso }}</div>
+
+{# ------------------------------------------------------------- acciones #}
+{% set a = acciones %}
+{% if a.diagnosticar or a.cotizar or a.decidir_cotizacion or a.decidir_ampliaciones or a.iniciar or a.terminar or a.reportar_falla
+      or a.cotizacion_complementaria or a.ampliar or a.falta_de_refaccion or a.recepciones or a.nueva_fecha
+      or a.evidencia_ingreso or a.evidencia_entrega or a.cobrar %}
+<section class="acciones">
+  <h2>Lo que puedes hacer ahora</h2>
+
+  {% if a.diagnosticar %}
+  <form method="post" action="/ordenes/{{ orden.id }}/diagnostico" class="tarjeta formulario">
+    <h3>Registrar diagnóstico</h3>
+    <label>Falla encontrada <textarea name="falla" rows="3" required placeholder="Describe lo que encontraste en la revisión"></textarea></label>
+    <button class="boton" type="submit">Registrar diagnóstico</button>
+  </form>
+  {% endif %}
+
+  {% if a.cotizar %}
+  <form method="post" action="/ordenes/{{ orden.id }}/cotizacion" class="tarjeta formulario">
+    <h3>Generar y enviar cotización inicial</h3>
+    <p class="ayuda">Diagnóstico: {{ orden.diagnostico.falla_encontrada }}</p>
+    {{ filas_trabajo('inicial') }}
+    <button class="boton" type="submit">Enviar cotización al cliente</button>
+  </form>
+  {% endif %}
+
+  {% if a.decidir_cotizacion %}
+  {% set cot = a.decidir_cotizacion %}
+  <form method="post" action="/ordenes/{{ orden.id }}/cotizaciones/{{ cot.id }}/autorizacion" class="tarjeta formulario destacado">
+    <h3>Autorización digital · Cotización {{ cot.tipo | lower }}</h3>
+    {% if cot.descripcion_falla_adicional %}<p class="ayuda">Falla adicional encontrada: {{ cot.descripcion_falla_adicional }}</p>{% endif %}
+    <p class="ayuda">Decide cada trabajo. Solo se realizarán y cobrarán los trabajos que autorices.</p>
+    <div class="tabla-contenedor">
+    <table class="tabla">
+      <thead><tr><th>Trabajo</th><th>Importe</th><th>Tu decisión</th></tr></thead>
+      <tbody>
+      {% for t in cot.trabajos_pendientes() %}
+        <tr>
+          <td>{{ t.descripcion }} (x{{ t.cantidad }})</td>
+          <td>{{ t.monto }}</td>
+          <td class="decision">
+            <label><input type="radio" name="decision_{{ t.id }}" value="autorizar" required> Autorizar</label>
+            <label><input type="radio" name="decision_{{ t.id }}" value="rechazar"> Rechazar</label>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+      <tfoot><tr><td>Total cotizado</td><td colspan="2"><strong>{{ cot.total }}</strong></td></tr></tfoot>
+    </table>
+    </div>
+    {{ confirmacion() }}
+    <button class="boton" type="submit">Registrar mi decisión</button>
+  </form>
+  {% endif %}
+
+  {% for p in a.decidir_ampliaciones %}
+  <form method="post" action="/ordenes/{{ orden.id }}/trabajos/{{ p.trabajo.id }}/ampliaciones/{{ p.ampliacion.id }}/decision" class="tarjeta formulario destacado">
+    <h3>Autorización digital · Ampliación de «{{ p.trabajo.descripcion }}»</h3>
+    <p>Se solicita una ampliación de <strong>{{ p.ampliacion.monto }}</strong>. Motivo: {{ p.ampliacion.motivo }}.</p>
+    <p class="ayuda">Supera el 20 % del total que autorizaste, por eso requiere tu autorización explícita (RN-06).</p>
+    <div class="decision">
+      <label><input type="radio" name="decision" value="autorizar" required> Autorizar la ampliación</label>
+      <label><input type="radio" name="decision" value="rechazar"> Rechazar la ampliación</label>
+    </div>
+    {{ confirmacion() }}
+    <button class="boton" type="submit">Registrar mi decisión</button>
+  </form>
+  {% endfor %}
+
+  {% if a.iniciar or a.terminar %}
+  <div class="tarjeta">
+    <h3>Trabajos autorizados</h3>
+    <ul class="lista-acciones">
+      {% for t in a.iniciar %}
+      <li><span>{{ t.descripcion }} <span class="estado estado-{{ t.estado | estilo }}">{{ t.estado }}</span></span>
+        <form method="post" action="/ordenes/{{ orden.id }}/trabajos/{{ t.id }}/iniciar"><button class="boton boton-chico" type="submit">Iniciar trabajo</button></form></li>
+      {% endfor %}
+      {% for t in a.terminar %}
+      <li><span>{{ t.descripcion }} <span class="estado estado-{{ t.estado | estilo }}">{{ t.estado }}</span></span>
+        <form method="post" action="/ordenes/{{ orden.id }}/trabajos/{{ t.id }}/terminar"><button class="boton boton-chico" type="submit">Marcar como terminado</button></form></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if a.reportar_falla %}
+  <form method="post" action="/ordenes/{{ orden.id }}/falla-adicional" class="tarjeta formulario">
+    <h3>Reportar falla adicional</h3>
+    <label>Falla encontrada durante la reparación <textarea name="descripcion" rows="2" required></textarea></label>
+    <button class="boton boton-secundario" type="submit">Reportar al Asesor de Servicio</button>
+  </form>
+  {% endif %}
+
+  {% if a.cotizacion_complementaria %}
+  <form method="post" action="/ordenes/{{ orden.id }}/cotizacion-complementaria" class="tarjeta formulario">
+    <h3>Generar cotización complementaria</h3>
+    <p class="ayuda">Falla adicional reportada por el Técnico: <strong>{{ orden.fallas_por_cotizar[0] }}</strong>. Todo trabajo nuevo requiere autorización del cliente (RN-05).</p>
+    {{ filas_trabajo('complementaria') }}
+    <button class="boton" type="submit">Enviar cotización complementaria</button>
+  </form>
+  {% endif %}
+
+  {% if a.ampliar %}
+  <form method="post" action="/ordenes/{{ orden.id }}/ampliacion" class="tarjeta formulario">
+    <h3>Solicitar ampliación de un trabajo</h3>
+    <p class="ayuda">Total autorizado de la cotización inicial: {{ a.umbral.total_autorizado }} · Ampliaciones acumuladas: {{ a.umbral.acumulado }} ·
+       Hasta {{ a.umbral.limite }} acumulados se aplican sin reautorización; más de eso requiere autorización del cliente.</p>
+    <div class="campos-3">
+      <label>Trabajo
+        <select name="trabajo" required>{% for t in a.ampliar %}<option value="{{ t.id }}">{{ t.descripcion }}</option>{% endfor %}</select>
+      </label>
+      <label>Monto de la ampliación (MXN) <input name="monto" type="number" min="0.01" step="0.01" required></label>
+      <label>Motivo <input name="motivo" required></label>
+    </div>
+    <button class="boton boton-secundario" type="submit">Solicitar ampliación</button>
+  </form>
+  {% endif %}
+
+  {% for t in a.falta_de_refaccion %}
+  <form method="post" action="/ordenes/{{ orden.id }}/trabajos/{{ t.id }}/falta-de-refaccion" class="tarjeta formulario">
+    <h3>Refacción sin existencia · {{ t.descripcion }}</h3>
+    <div class="campos-2">
+      <label>Código de refacción <input name="codigo" required placeholder="BAL-4410"></label>
+      <label>Proveedor <input name="proveedor" required placeholder="Refacciones del Norte"></label>
+    </div>
+    <button class="boton boton-secundario" type="submit">Confirmar falta de existencia y generar orden de compra</button>
+  </form>
+  {% endfor %}
+
+  {% for oc in a.recepciones %}
+  <form method="post" action="/ordenes-de-compra/{{ oc.id }}/recepcion" class="tarjeta formulario">
+    <input type="hidden" name="volver" value="/ordenes/{{ orden.id }}">
+    <h3>Recepción de refacción</h3>
+    <p>Orden de compra de <strong>{{ oc.codigo_refaccion }}</strong> a {{ oc.proveedor }} · <span class="estado estado-{{ oc.estado | estilo }}">{{ oc.estado }}</span></p>
+    <button class="boton" type="submit">Registrar recepción de refacción</button>
+  </form>
+  {% endfor %}
+
+  {% if a.nueva_fecha %}
+  <form method="post" action="/ordenes/{{ orden.id }}/nueva-fecha" class="tarjeta formulario">
+    <h3>Notificar nueva fecha de entrega</h3>
+    <div class="campos-2">
+      <label>Nueva fecha estimada <input type="date" name="fecha" min="{{ hoy }}" required></label>
+      <label>Motivo <input name="motivo" required placeholder="El proveedor entrega la refacción el lunes"></label>
+    </div>
+    <button class="boton" type="submit">Avisar al cliente</button>
+  </form>
+  {% endif %}
+
+  {% if a.evidencia_ingreso or a.evidencia_entrega %}
+  <form method="post" action="/ordenes/{{ orden.id }}/evidencia" enctype="multipart/form-data" class="tarjeta formulario">
+    <h3>Evidencia fotográfica de {{ 'entrega' if a.evidencia_entrega else 'ingreso' }}</h3>
+    <input type="hidden" name="etapa" value="{{ 'Entrega' if a.evidencia_entrega else 'Ingreso' }}">
+    <label>Fotografía <input type="file" name="foto" accept="image/*" required></label>
+    <button class="boton boton-secundario" type="submit">Registrar evidencia</button>
+  </form>
+  {% endif %}
+
+  {% if a.cobrar and cobro %}
+  <form method="post" action="/ordenes/{{ orden.id }}/cierre" class="tarjeta formulario destacado">
+    <h3>{{ 'Cobro del diagnóstico (rechazo total)' if cobro.rechazo_total else 'Cierre de caja' }}</h3>
+    <div class="tabla-contenedor">
+    <table class="tabla">
+      <thead><tr><th>Concepto</th><th>Importe</th></tr></thead>
+      <tbody>{% for c in cobro.conceptos %}<tr><td>{{ c.concepto }}</td><td>{{ c.importe }}</td></tr>{% else %}<tr><td colspan="2">Sin conceptos por cobrar.</td></tr>{% endfor %}</tbody>
+      <tfoot><tr><td>Total a cobrar</td><td><strong>{{ cobro.total }}</strong></td></tr></tfoot>
+    </table>
+    </div>
+    <p class="ayuda">Solo aparecen trabajos «Terminado» y el diagnóstico aceptado; lo rechazado o pendiente no se cobra (RN-11).</p>
+    {% if cobro.es_flotilla and not cobro.rechazo_total %}
+      <p>Cliente de flotilla: la orden se cerrará y se incluirá en su facturación consolidada del mes.</p>
+      <button class="boton" type="submit">Cerrar orden para facturación consolidada</button>
+    {% else %}
+      <label>Pago recibido (MXN) <input name="pago" type="number" min="0" step="0.01" value="{{ cobro.total_valor }}" required></label>
+      <button class="boton" type="submit">Registrar cobro y cerrar la orden</button>
+    {% endif %}
+  </form>
+  {% endif %}
+</section>
+{% endif %}
+
+{# ---------------------------------------------------------------- detalle #}
+<section class="rejilla-2">
+  <div class="tarjeta">
+    <h2>Inspección de ingreso</h2>
+    <dl class="datos">
+      <dt>Placa</dt><dd>{{ orden.vehiculo.placa }}</dd>
+      <dt>VIN</dt><dd>{{ orden.vehiculo.vin }}</dd>
+      <dt>Kilometraje</dt><dd>{{ '{:,}'.format(orden.inspeccion.kilometraje) }} km</dd>
+      <dt>Combustible</dt><dd>{{ orden.inspeccion.nivel_combustible }}</dd>
+      <dt>Daños visibles</dt><dd>{{ orden.inspeccion.danos_visibles }}</dd>
+      <dt>Motivo de ingreso</dt><dd>{{ orden.inspeccion.motivo_ingreso }}</dd>
+      <dt>Cargo de diagnóstico</dt><dd>{{ orden.cargo_diagnostico }} · {{ 'aceptado por el cliente' if orden.cargo_diagnostico_aceptado else 'no aceptado (no se cobra)' }}</dd>
+    </dl>
+  </div>
+  <div class="tarjeta">
+    <h2>Diagnóstico</h2>
+    {% if orden.diagnostico %}
+      <p>{{ orden.diagnostico.falla_encontrada }}</p>
+      <p class="ayuda">Registrado por {{ orden.diagnostico.tecnico }} el {{ orden.diagnostico.fecha }}.</p>
+    {% else %}<p class="vacio">Aún no se registra el diagnóstico.</p>{% endif %}
+    {% if orden.fallas_por_cotizar %}<p class="ayuda">Falla adicional por cotizar: {{ orden.fallas_por_cotizar | join(', ') }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="tarjeta">
+  <h2>Cotizaciones y trabajos</h2>
+  {% for c in orden.cotizaciones %}
+    <h3>Cotización {{ c.tipo | lower }} · {{ c.total }} {% if c.pendiente %}<span class="estado estado-ambar">Pendiente de autorización</span>{% endif %}</h3>
+    {% if c.falla_adicional %}<p class="ayuda">Por falla adicional: {{ c.falla_adicional }}</p>{% endif %}
+    <div class="tabla-contenedor">
+    <table class="tabla">
+      <thead><tr><th>Trabajo</th><th>Cantidad</th><th>Importe</th><th>Estado</th><th>Detalle</th></tr></thead>
+      <tbody>
+      {% for t in c.trabajos %}
+        <tr>
+          <td>{{ t.descripcion }}</td><td>{{ t.cantidad }}</td><td>{{ t.monto }}</td>
+          <td><span class="estado estado-{{ t.estado | estilo }}">{{ t.estado }}</span></td>
+          <td>
+            {% for amp in t.ampliaciones %}<div>Ampliación {{ amp.monto }}: <span class="estado estado-{{ amp.estado | estilo }}">{{ amp.estado }}</span></div>{% endfor %}
+            {% for r in t.refacciones %}<div>Refacción {{ r.codigo }}: {{ r.existencia }}</div>{% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    {% for r in c.registros %}
+      <p class="registro">✔ Registro de autorización: {{ r.autorizador }} ({{ r.rol }}) el {{ r.fecha }}.
+        {% if r.autorizados %}Autorizó: {{ r.autorizados | join(', ') }}.{% endif %}
+        {% if r.rechazados %}Rechazó: {{ r.rechazados | join(', ') }}.{% endif %}</p>
+    {% endfor %}
+  {% else %}<p class="vacio">Aún no hay cotizaciones.</p>{% endfor %}
+  <p class="total">Total cobrable hasta ahora: <strong>{{ orden.total_cobrable }}</strong></p>
+</section>
+
+{% if orden.ordenes_de_compra %}
+<section class="tarjeta">
+  <h2>Órdenes de compra</h2>
+  <ul class="lista">{% for oc in orden.ordenes_de_compra %}<li>{{ oc.codigo }} para «{{ oc.trabajo }}» · {{ oc.proveedor }} · <span class="estado estado-{{ oc.estado | estilo }}">{{ oc.estado }}</span></li>{% endfor %}</ul>
+</section>
+{% endif %}
+
+<section class="rejilla-2">
+  <div class="tarjeta">
+    <h2>Evidencia fotográfica</h2>
+    {% for e in orden.evidencias %}<p>📷 {{ e.etapa }}: {{ e.archivo }} <span class="ayuda">({{ e.registrada_por }}, {{ e.fecha }})</span></p>
+    {% else %}<p class="vacio">Sin fotografías registradas.</p>{% endfor %}
+  </div>
+  <div class="tarjeta">
+    <h2>Avisos enviados al cliente</h2>
+    {% for n in orden.avisos_al_cliente %}<p>✉ {{ n.mensaje }} <span class="ayuda">{{ n.fecha }}</span></p>
+    {% else %}<p class="vacio">Sin avisos todavía.</p>{% endfor %}
+  </div>
+</section>
+
+<section class="tarjeta">
+  <h2>Historial de la orden</h2>
+  <ol class="historial">{% for h in orden.historial %}<li><span class="ayuda">{{ h.fecha }}</span> {{ h.descripcion }}</li>{% endfor %}</ol>
+</section>
+
+{% if a.disputa %}
+<details class="tarjeta">
+  <summary>¿Tienes un desacuerdo con una autorización o un cobro? Registrar una disputa</summary>
+  <form method="post" action="/ordenes/{{ orden.id }}/disputa" class="formulario">
+    <label>Categoría
+      <select name="categoria" required>{% for c in categorias %}<option>{{ c }}</option>{% endfor %}</select>
+    </label>
+    <label>Describe el problema <textarea name="descripcion" rows="3" required></textarea></label>
+    <button class="boton boton-secundario" type="submit">Registrar disputa</button>
+  </form>
+</details>
+{% endif %}
+{% endblock %}

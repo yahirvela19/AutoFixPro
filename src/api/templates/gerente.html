@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titulo %}Indicadores y avisos{% endblock %}
+{% block contenido %}
+<div class="encabezado-pagina"><h1>Indicadores del taller</h1></div>
+<form method="get" action="/gerente" class="tarjeta formulario fila">
+  <label>Desde <input type="date" name="desde" value="{{ desde }}"></label>
+  <label>Hasta <input type="date" name="hasta" value="{{ hasta }}"></label>
+  <button class="boton boton-secundario" type="submit">Actualizar</button>
+</form>
+<div class="rejilla-indicadores">
+  <div class="indicador"><span>Órdenes cerradas</span><strong>{{ indicadores.ordenes_cerradas }}</strong></div>
+  <div class="indicador"><span>Disputas registradas</span><strong>{{ indicadores.disputas_registradas }}</strong><small>{{ indicadores.disputas_abiertas }} abiertas</small></div>
+  <div class="indicador"><span>Decisiones con evidencia digital</span><strong>{{ indicadores.porcentaje_con_evidencia_digital }}</strong><small>de {{ indicadores.decisiones_de_autorizacion }} decisiones</small></div>
+  <div class="indicador"><span>Tiempo de comunicación de retraso</span><strong>{{ indicadores.tiempo_promedio_comunicacion_retraso_minutos }}{% if indicadores.avisos_de_retraso %} min{% endif %}</strong><small>promedio, meta: menos de 2 horas</small></div>
+  <div class="indicador"><span>Avisos de retraso en menos de 2 horas</span><strong>{{ indicadores.porcentaje_avisos_menos_de_2_horas }}</strong><small>de {{ indicadores.avisos_de_retraso }} avisos</small></div>
+</div>
+<section class="tarjeta">
+  <h2>Plazo de respuesta (24 horas)</h2>
+  <p class="ayuda">Se revisa automáticamente cada 15 minutos. También puedes revisarlo ahora.</p>
+  <form method="post" action="/gerente/plazos"><button class="boton" type="submit">Revisar plazos de respuesta</button></form>
+</section>
+<section class="tarjeta">
+  <h2>Avisos al Gerente del Taller</h2>
+  {% for n in avisos %}<p>🔔 {{ n.mensaje }} <span class="ayuda">{{ n.fecha }}</span></p>{% else %}<p class="vacio">Sin avisos.</p>{% endfor %}
+</section>
+{% endblock %}

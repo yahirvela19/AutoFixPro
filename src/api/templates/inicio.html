@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titulo %}Órdenes{% endblock %}
+{% macro tabla(ordenes) %}
+<div class="tabla-contenedor">
+<table class="tabla">
+  <thead><tr><th>Folio</th><th>Cliente</th><th>Vehículo</th><th>Ingreso</th><th>Estado</th><th></th></tr></thead>
+  <tbody>
+  {% for o in ordenes %}
+    <tr>
+      <td><strong>{{ o.folio }}</strong></td>
+      <td>{{ o.cliente }}{% if o.prioridad_contractual %} <span class="etiqueta etiqueta-prioridad">Prioridad contractual</span>{% endif %}</td>
+      <td>{{ o.vehiculo }}</td>
+      <td>{{ o.fecha_ingreso }}</td>
+      <td><span class="estado estado-{{ o.estado | estilo }}">{{ o.estado }}</span></td>
+      <td><a class="boton boton-chico" href="/ordenes/{{ o.id }}">Ver orden</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endmacro %}
+{% block contenido %}
+<div class="encabezado-pagina">
+  <h1>{% if usuario.rol in ('Cliente Titular', 'Responsable de Cuenta') %}Mis órdenes de servicio{% else %}Órdenes de servicio{% endif %}</h1>
+  {% if usuario.rol == 'Asesor de Servicio' %}<a class="boton" href="/ordenes/nueva">+ Registrar ingreso</a>{% endif %}
+</div>
+<h2>En proceso ({{ activas | length }})</h2>
+{% if activas %}{{ tabla(activas) }}{% else %}<p class="vacio">No hay órdenes en proceso.</p>{% endif %}
+<h2>Cerradas ({{ cerradas | length }})</h2>
+{% if cerradas %}{{ tabla(cerradas) }}{% else %}<p class="vacio">Aún no hay órdenes cerradas.</p>{% endif %}
+{% endblock %}

@@ -1,0 +1,1796 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AutoFix Pro API",
+    "description": "\nAPI de **AutoFix Pro** (Equipo 6, PIA de Componentes de Lógica de Negocio).\n\nIdentifícate con el botón **Authorize** usando un token de demostración, por ejemplo\n`asesor-demo`, `tecnico-demo`, `compras-demo`, `caja-demo`, `gerente-demo`, `cliente-demo` o `flotilla-demo`.\nLos errores del negocio responden con `{\"detalle\": \"mensaje\"}`.\n",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/ordenes-de-servicio": {
+      "get": {
+        "tags": [
+          "Órdenes de servicio"
+        ],
+        "summary": "Listar órdenes visibles para el usuario",
+        "operationId": "listar_ordenes_api_v1_ordenes_de_servicio_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Órdenes de servicio"
+        ],
+        "summary": "US-01 Registrar ingreso del vehículo",
+        "operationId": "registrar_ingreso_api_v1_ordenes_de_servicio_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngresoEntrada"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}": {
+      "get": {
+        "tags": [
+          "Órdenes de servicio"
+        ],
+        "summary": "US-14 Consultar el estado del vehículo",
+        "operationId": "consultar_orden_api_v1_ordenes_de_servicio__orden_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/evidencias-fotograficas": {
+      "post": {
+        "tags": [
+          "Órdenes de servicio"
+        ],
+        "summary": "US-02 / US-20 Registrar evidencia fotográfica",
+        "operationId": "registrar_evidencia_api_v1_ordenes_de_servicio__orden_id__evidencias_fotograficas_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenciaEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/diagnostico": {
+      "post": {
+        "tags": [
+          "Diagnóstico y cotización"
+        ],
+        "summary": "US-03 Registrar diagnóstico",
+        "operationId": "registrar_diagnostico_api_v1_ordenes_de_servicio__orden_id__diagnostico_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiagnosticoEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/cotizaciones": {
+      "post": {
+        "tags": [
+          "Diagnóstico y cotización"
+        ],
+        "summary": "US-04 Generar y enviar la cotización inicial",
+        "operationId": "generar_cotizacion_api_v1_ordenes_de_servicio__orden_id__cotizaciones_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CotizacionEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/cotizaciones/{cotizacion_id}/autorizacion-digital": {
+      "post": {
+        "tags": [
+          "Autorización digital"
+        ],
+        "summary": "US-05/06/07/16/21 Autorizar o rechazar trabajos",
+        "operationId": "autorizacion_digital_api_v1_ordenes_de_servicio__orden_id__cotizaciones__cotizacion_id__autorizacion_digital_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "cotizacion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Cotizacion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutorizacionDigitalEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/trabajos": {
+      "get": {
+        "tags": [
+          "Ejecución"
+        ],
+        "summary": "US-08 Consultar trabajos (opcional: solo ejecutables)",
+        "operationId": "consultar_trabajos_api_v1_ordenes_de_servicio__orden_id__trabajos_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "ejecutables",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Ejecutables"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/trabajos/{trabajo_id}/inicio": {
+      "post": {
+        "tags": [
+          "Ejecución"
+        ],
+        "summary": "US-08 Iniciar un trabajo autorizado",
+        "operationId": "iniciar_trabajo_api_v1_ordenes_de_servicio__orden_id__trabajos__trabajo_id__inicio_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "trabajo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trabajo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/trabajos/{trabajo_id}/terminacion": {
+      "post": {
+        "tags": [
+          "Ejecución"
+        ],
+        "summary": "US-08 Terminar un trabajo",
+        "operationId": "terminar_trabajo_api_v1_ordenes_de_servicio__orden_id__trabajos__trabajo_id__terminacion_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "trabajo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trabajo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/fallas-adicionales": {
+      "post": {
+        "tags": [
+          "Falla adicional y ampliación"
+        ],
+        "summary": "US-09 Reportar una falla adicional",
+        "operationId": "reportar_falla_api_v1_ordenes_de_servicio__orden_id__fallas_adicionales_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FallaAdicionalEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/cotizaciones-complementarias": {
+      "post": {
+        "tags": [
+          "Falla adicional y ampliación"
+        ],
+        "summary": "US-10 Generar y enviar la cotización complementaria",
+        "operationId": "cotizacion_complementaria_api_v1_ordenes_de_servicio__orden_id__cotizaciones_complementarias_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CotizacionEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/trabajos/{trabajo_id}/ampliaciones": {
+      "post": {
+        "tags": [
+          "Falla adicional y ampliación"
+        ],
+        "summary": "US-10 Solicitar una ampliación (umbral del 20 %)",
+        "operationId": "solicitar_ampliacion_api_v1_ordenes_de_servicio__orden_id__trabajos__trabajo_id__ampliaciones_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "trabajo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trabajo Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AmpliacionEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/trabajos/{trabajo_id}/ampliaciones/{ampliacion_id}/autorizacion-digital": {
+      "post": {
+        "tags": [
+          "Falla adicional y ampliación"
+        ],
+        "summary": "US-10 Autorizar o rechazar una ampliación",
+        "operationId": "decidir_ampliacion_api_v1_ordenes_de_servicio__orden_id__trabajos__trabajo_id__ampliaciones__ampliacion_id__autorizacion_digital_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "trabajo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trabajo Id"
+            }
+          },
+          {
+            "name": "ampliacion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ampliacion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionDeAmpliacionEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/trabajos/{trabajo_id}/necesidad-de-refaccion": {
+      "post": {
+        "tags": [
+          "Refacciones"
+        ],
+        "summary": "US-11/12 Confirmar refacción sin existencia",
+        "operationId": "falta_de_existencia_api_v1_ordenes_de_servicio__orden_id__trabajos__trabajo_id__necesidad_de_refaccion_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          },
+          {
+            "name": "trabajo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trabajo Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NecesidadDeRefaccionEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/nueva-fecha-de-entrega": {
+      "post": {
+        "tags": [
+          "Refacciones"
+        ],
+        "summary": "US-13 Notificar nueva fecha de entrega",
+        "operationId": "nueva_fecha_api_v1_ordenes_de_servicio__orden_id__nueva_fecha_de_entrega_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevaFechaEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-compra": {
+      "get": {
+        "tags": [
+          "Refacciones"
+        ],
+        "summary": "Listar órdenes de compra",
+        "operationId": "listar_ordenes_de_compra_api_v1_ordenes_de_compra_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/ordenes-de-compra/{orden_de_compra_id}/recepcion-de-refaccion": {
+      "post": {
+        "tags": [
+          "Refacciones"
+        ],
+        "summary": "US-23 Registrar la recepción de una refacción",
+        "operationId": "recepcion_de_refaccion_api_v1_ordenes_de_compra__orden_de_compra_id__recepcion_de_refaccion_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_de_compra_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden De Compra Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/detalle-para-cobro": {
+      "get": {
+        "tags": [
+          "Caja"
+        ],
+        "summary": "US-19 Detalle para cobro",
+        "operationId": "detalle_para_cobro_api_v1_ordenes_de_servicio__orden_id__detalle_para_cobro_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ordenes-de-servicio/{orden_id}/cierre-de-caja": {
+      "post": {
+        "tags": [
+          "Caja"
+        ],
+        "summary": "US-19/21 Cierre de caja",
+        "operationId": "cierre_de_caja_api_v1_ordenes_de_servicio__orden_id__cierre_de_caja_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orden_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Orden Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CierreDeCajaEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/facturaciones-consolidadas": {
+      "post": {
+        "tags": [
+          "Caja"
+        ],
+        "summary": "US-17 Facturación consolidada",
+        "operationId": "facturacion_api_v1_facturaciones_consolidadas_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturacionEntrada"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/cola-de-atencion": {
+      "get": {
+        "tags": [
+          "Asesor de servicio"
+        ],
+        "summary": "US-18 Cola de atención",
+        "operationId": "cola_api_v1_cola_de_atencion_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/plazos-de-respuesta/procesamiento": {
+      "post": {
+        "tags": [
+          "Gerente del Taller"
+        ],
+        "summary": "US-22 Procesar plazos de respuesta vencidos",
+        "operationId": "procesar_plazos_api_v1_plazos_de_respuesta_procesamiento_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/disputas": {
+      "get": {
+        "tags": [
+          "Disputas"
+        ],
+        "summary": "Listar disputas",
+        "operationId": "listar_disputas_api_v1_disputas_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Disputas"
+        ],
+        "summary": "US-24 Registrar una disputa",
+        "operationId": "registrar_disputa_api_v1_disputas_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisputaEntrada"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/disputas/{disputa_id}/resolucion": {
+      "post": {
+        "tags": [
+          "Disputas"
+        ],
+        "summary": "US-24 Resolver una disputa",
+        "operationId": "resolver_disputa_api_v1_disputas__disputa_id__resolucion_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "disputa_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Disputa Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolucionEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/indicadores": {
+      "get": {
+        "tags": [
+          "Gerente del Taller"
+        ],
+        "summary": "US-15 Indicadores del periodo",
+        "operationId": "indicadores_api_v1_indicadores_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "desde",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "title": "Desde"
+            }
+          },
+          {
+            "name": "hasta",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "title": "Hasta"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AmpliacionEntrada": {
+        "properties": {
+          "monto": {
+            "type": "string",
+            "title": "Monto",
+            "examples": [
+              "450.00"
+            ]
+          },
+          "motivo": {
+            "type": "string",
+            "title": "Motivo",
+            "examples": [
+              "Se requiere un segundo juego de tornillería"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "monto",
+          "motivo"
+        ],
+        "title": "AmpliacionEntrada"
+      },
+      "AutorizacionDigitalEntrada": {
+        "properties": {
+          "trabajos_autorizados": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Trabajos Autorizados"
+          },
+          "trabajos_rechazados": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Trabajos Rechazados"
+          },
+          "referencia_evidencia_digital": {
+            "type": "string",
+            "title": "Referencia Evidencia Digital",
+            "examples": [
+              "Firma digital del cliente"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "referencia_evidencia_digital"
+        ],
+        "title": "AutorizacionDigitalEntrada"
+      },
+      "CategoriaDisputa": {
+        "type": "string",
+        "enum": [
+          "Autorización",
+          "Cobro"
+        ],
+        "title": "CategoriaDisputa"
+      },
+      "CierreDeCajaEntrada": {
+        "properties": {
+          "pago": {
+            "type": "string",
+            "title": "Pago",
+            "default": "0",
+            "examples": [
+              "1550.00"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "CierreDeCajaEntrada"
+      },
+      "CotizacionEntrada": {
+        "properties": {
+          "trabajos": {
+            "items": {
+              "$ref": "#/components/schemas/LineaDeTrabajo"
+            },
+            "type": "array",
+            "title": "Trabajos"
+          }
+        },
+        "type": "object",
+        "required": [
+          "trabajos"
+        ],
+        "title": "CotizacionEntrada"
+      },
+      "DecisionDeAmpliacionEntrada": {
+        "properties": {
+          "autoriza": {
+            "type": "boolean",
+            "title": "Autoriza"
+          },
+          "referencia_evidencia_digital": {
+            "type": "string",
+            "title": "Referencia Evidencia Digital"
+          }
+        },
+        "type": "object",
+        "required": [
+          "autoriza",
+          "referencia_evidencia_digital"
+        ],
+        "title": "DecisionDeAmpliacionEntrada"
+      },
+      "DiagnosticoEntrada": {
+        "properties": {
+          "falla_encontrada": {
+            "type": "string",
+            "title": "Falla Encontrada",
+            "examples": [
+              "Balatas delanteras gastadas"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "falla_encontrada"
+        ],
+        "title": "DiagnosticoEntrada"
+      },
+      "DisputaEntrada": {
+        "properties": {
+          "orden_id": {
+            "type": "string",
+            "title": "Orden Id"
+          },
+          "categoria": {
+            "$ref": "#/components/schemas/CategoriaDisputa"
+          },
+          "descripcion": {
+            "type": "string",
+            "title": "Descripcion"
+          }
+        },
+        "type": "object",
+        "required": [
+          "orden_id",
+          "categoria",
+          "descripcion"
+        ],
+        "title": "DisputaEntrada"
+      },
+      "EtapaEvidencia": {
+        "type": "string",
+        "enum": [
+          "Ingreso",
+          "Entrega"
+        ],
+        "title": "EtapaEvidencia"
+      },
+      "EvidenciaEntrada": {
+        "properties": {
+          "etapa": {
+            "$ref": "#/components/schemas/EtapaEvidencia"
+          },
+          "referencia_archivo": {
+            "type": "string",
+            "title": "Referencia Archivo",
+            "examples": [
+              "entrega_frente.jpg"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "etapa",
+          "referencia_archivo"
+        ],
+        "title": "EvidenciaEntrada"
+      },
+      "FacturacionEntrada": {
+        "properties": {
+          "cliente_id": {
+            "type": "string",
+            "title": "Cliente Id",
+            "examples": [
+              "FLO-001"
+            ]
+          },
+          "periodo": {
+            "type": "string",
+            "title": "Periodo",
+            "examples": [
+              "2026-11"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "cliente_id",
+          "periodo"
+        ],
+        "title": "FacturacionEntrada"
+      },
+      "FallaAdicionalEntrada": {
+        "properties": {
+          "descripcion": {
+            "type": "string",
+            "title": "Descripcion",
+            "examples": [
+              "Fuga en manguera de radiador"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "descripcion"
+        ],
+        "title": "FallaAdicionalEntrada"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "IngresoEntrada": {
+        "properties": {
+          "cliente_id": {
+            "type": "string",
+            "title": "Cliente Id",
+            "examples": [
+              "CLI-001"
+            ]
+          },
+          "placa": {
+            "type": "string",
+            "title": "Placa",
+            "examples": [
+              "SMX-482-A"
+            ]
+          },
+          "marca": {
+            "type": "string",
+            "title": "Marca",
+            "examples": [
+              "Nissan"
+            ]
+          },
+          "modelo": {
+            "type": "string",
+            "title": "Modelo",
+            "examples": [
+              "Versa 2019"
+            ]
+          },
+          "vin": {
+            "type": "string",
+            "title": "Vin",
+            "examples": [
+              "3N1CN7AD5KL812345"
+            ]
+          },
+          "kilometraje": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Kilometraje",
+            "examples": [
+              68200
+            ]
+          },
+          "nivel_combustible": {
+            "type": "string",
+            "title": "Nivel Combustible",
+            "examples": [
+              "1/2"
+            ]
+          },
+          "danos_visibles": {
+            "type": "string",
+            "title": "Danos Visibles",
+            "default": "",
+            "examples": [
+              "Rayón en defensa trasera"
+            ]
+          },
+          "motivo_ingreso": {
+            "type": "string",
+            "title": "Motivo Ingreso",
+            "examples": [
+              "Ruido al frenar"
+            ]
+          },
+          "cargo_diagnostico": {
+            "type": "string",
+            "title": "Cargo Diagnostico",
+            "default": "0",
+            "examples": [
+              "350"
+            ]
+          },
+          "cargo_diagnostico_aceptado": {
+            "type": "boolean",
+            "title": "Cargo Diagnostico Aceptado",
+            "default": false
+          },
+          "foto_ingreso": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Foto Ingreso",
+            "examples": [
+              "versa_ingreso.jpg"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "cliente_id",
+          "placa",
+          "marca",
+          "modelo",
+          "vin",
+          "kilometraje",
+          "nivel_combustible",
+          "motivo_ingreso"
+        ],
+        "title": "IngresoEntrada"
+      },
+      "LineaDeTrabajo": {
+        "properties": {
+          "descripcion": {
+            "type": "string",
+            "title": "Descripcion",
+            "examples": [
+              "Cambio de balatas delanteras"
+            ]
+          },
+          "cantidad": {
+            "type": "integer",
+            "title": "Cantidad",
+            "default": 1,
+            "examples": [
+              1
+            ]
+          },
+          "precio_unitario": {
+            "type": "string",
+            "title": "Precio Unitario",
+            "examples": [
+              "1200.00"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "descripcion",
+          "precio_unitario"
+        ],
+        "title": "LineaDeTrabajo"
+      },
+      "NecesidadDeRefaccionEntrada": {
+        "properties": {
+          "codigo_refaccion": {
+            "type": "string",
+            "title": "Codigo Refaccion",
+            "examples": [
+              "BAL-4410"
+            ]
+          },
+          "proveedor": {
+            "type": "string",
+            "title": "Proveedor",
+            "examples": [
+              "Refacciones del Norte"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "codigo_refaccion",
+          "proveedor"
+        ],
+        "title": "NecesidadDeRefaccionEntrada"
+      },
+      "NuevaFechaEntrada": {
+        "properties": {
+          "nueva_fecha": {
+            "type": "string",
+            "format": "date",
+            "title": "Nueva Fecha"
+          },
+          "motivo": {
+            "type": "string",
+            "title": "Motivo",
+            "examples": [
+              "El proveedor entrega la refacción el lunes"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "nueva_fecha",
+          "motivo"
+        ],
+        "title": "NuevaFechaEntrada"
+      },
+      "ResolucionEntrada": {
+        "properties": {
+          "resolucion": {
+            "type": "string",
+            "title": "Resolucion"
+          }
+        },
+        "type": "object",
+        "required": [
+          "resolucion"
+        ],
+        "title": "ResolucionEntrada"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "description": "Token de demostración, por ejemplo «asesor-demo».",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}Disputas{% endblock %}
+{% block contenido %}
+<div class="encabezado-pagina"><h1>Disputas</h1></div>
+{% if usuario.rol in ('Cliente Titular', 'Responsable de Cuenta') %}<p class="ayuda">Para registrar una disputa abre tu orden y usa el apartado al final de la página.</p>{% endif %}
+{% for d in disputas %}
+<div class="tarjeta">
+  <h3>{{ d.folio }} · {{ d.categoria }} <span class="estado estado-{{ d.estado | estilo }}">{{ d.estado }}</span></h3>
+  <p>{{ d.descripcion }}</p>
+  <p class="ayuda">{{ d.cliente }} · {{ d.fecha }}</p>
+  {% if d.resolucion %}<p><strong>Resolución:</strong> {{ d.resolucion }}</p>{% endif %}
+  {% if usuario.rol == 'Gerente del Taller' and d.estado == 'Abierta' %}
+  <form method="post" action="/disputas/{{ d.id }}/resolucion" class="formulario">
+    <label>Resolución <textarea name="resolucion" rows="2" required></textarea></label>
+    <button class="boton" type="submit">Resolver disputa</button>
+  </form>
+  {% endif %}
+</div>
+{% else %}<p class="vacio">No hay disputas registradas.</p>{% endfor %}
+{% endblock %}

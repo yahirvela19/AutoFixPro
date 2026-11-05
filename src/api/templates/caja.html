@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titulo %}Facturación consolidada{% endblock %}
+{% block contenido %}
+<div class="encabezado-pagina"><h1>Facturación consolidada de flotillas</h1></div>
+<p class="ayuda">Para cobrar una orden de un cliente particular, abre la orden en «Listo para entrega».</p>
+<form method="post" action="/caja/facturacion" class="tarjeta formulario">
+  <h2>Generar facturación del mes</h2>
+  <div class="campos-2">
+    <label>Cliente de flotilla
+      <select name="cliente_id" required>{% for f in flotillas %}<option value="{{ f.id }}">{{ f.nombre }}</option>{% endfor %}</select>
+    </label>
+    <label>Periodo <input type="month" name="periodo" value="{{ periodo }}" required></label>
+  </div>
+  <p class="ayuda">Agrupa las órdenes «Cerrado» del mes que aún no se han facturado (RN-13).</p>
+  <button class="boton" type="submit">Generar facturación consolidada</button>
+</form>
+<h2>Facturaciones generadas</h2>
+{% if facturaciones %}
+<div class="tabla-contenedor">
+<table class="tabla">
+  <thead><tr><th>Cliente</th><th>Periodo</th><th>Órdenes</th><th>Total</th><th>Generada</th></tr></thead>
+  <tbody>{% for f in facturaciones %}<tr><td>{{ f.cliente }}</td><td>{{ f.periodo }}</td><td>{{ f.ordenes | join(', ') }}</td><td>{{ f.total }}</td><td>{{ f.fecha }}</td></tr>{% endfor %}</tbody>
+</table>
+</div>
+{% else %}<p class="vacio">Aún no hay facturaciones consolidadas.</p>{% endif %}
+{% endblock %}

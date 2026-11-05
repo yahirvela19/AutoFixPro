@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}AutoFix Pro{% endblock %} · AutoFix Pro</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-interior">
+      <a class="marca" href="/"><span class="marca-icono" aria-hidden="true">🔧</span> AutoFix Pro</a>
+      {% if usuario %}
+      <nav class="menu" aria-label="Menú principal">
+        {% for texto, ruta in navegacion %}<a href="{{ ruta }}">{{ texto }}</a>{% endfor %}
+      </nav>
+      <div class="sesion">
+        <span class="sesion-nombre">{{ usuario.nombre }}</span>
+        <span class="sesion-rol">{{ usuario.rol }}</span>
+        <a class="boton boton-claro boton-chico" href="/salir">Cambiar de rol</a>
+      </div>
+      {% endif %}
+    </div>
+  </header>
+  <main class="contenido">
+    {% if aviso %}
+    <div class="aviso aviso-{{ 'error' if tipo_aviso == 'error' else 'exito' }}" role="status">
+      <strong>{{ 'No se pudo completar la acción.' if tipo_aviso == 'error' else 'Listo.' }}</strong> {{ aviso }}
+    </div>
+    {% endif %}
+    {% block contenido %}{% endblock %}
+  </main>
+  <footer class="pie">
+    AutoFix Pro · Equipo 6 · Componentes de Lógica de Negocio · Datos ficticios de demostración
+  </footer>
+</body>
+</html>

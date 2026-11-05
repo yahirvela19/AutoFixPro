@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block titulo %}Registrar ingreso{% endblock %}
+{% block contenido %}
+<div class="encabezado-pagina"><h1>Registrar ingreso del vehículo</h1></div>
+<form method="post" action="/ordenes" enctype="multipart/form-data" class="tarjeta formulario">
+  <fieldset>
+    <legend>Cliente</legend>
+    <label>Cliente
+      <select name="cliente_id" required>
+        <option value="">Selecciona un cliente…</option>
+        {% for c in clientes %}<option value="{{ c.id }}">{{ c.nombre }} · {{ c.tipo }}{% if c.prioridad_contractual %} · Prioridad contractual{% endif %}</option>{% endfor %}
+      </select>
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Vehículo</legend>
+    <div class="campos-4">
+      <label>Placa <input name="placa" required placeholder="SMX-482-A"></label>
+      <label>Marca <input name="marca" required placeholder="Nissan"></label>
+      <label>Modelo <input name="modelo" required placeholder="Versa 2019"></label>
+      <label>VIN <input name="vin" required placeholder="17 caracteres"></label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Inspección de ingreso</legend>
+    <div class="campos-3">
+      <label>Kilometraje <input name="kilometraje" type="number" min="0" required></label>
+      <label>Nivel de combustible
+        <select name="nivel_combustible" required>
+          <option value="">Selecciona…</option><option>Reserva</option><option>1/4</option><option>1/2</option><option>3/4</option><option>Lleno</option>
+        </select>
+      </label>
+      <label>Motivo de ingreso <input name="motivo_ingreso" required placeholder="Ruido al frenar"></label>
+    </div>
+    <label>Daños visibles <textarea name="danos_visibles" rows="2" placeholder="Describe golpes o rayones; déjalo vacío si no hay"></textarea></label>
+  </fieldset>
+  <fieldset>
+    <legend>Cargo de diagnóstico</legend>
+    <div class="campos-2">
+      <label>Cargo de diagnóstico (MXN) <input name="cargo_diagnostico" type="number" min="0" step="0.01" value="0"></label>
+      <label class="casilla"><input type="checkbox" name="cargo_diagnostico_aceptado" value="si"> El cliente acepta el cargo de diagnóstico</label>
+    </div>
+    <p class="ayuda">Si el cliente rechaza toda la cotización, solo se cobra el diagnóstico cuando lo aceptó al ingresar (RN-10).</p>
+  </fieldset>
+  <fieldset>
+    <legend>Evidencia fotográfica de ingreso</legend>
+    <label>Fotografía (opcional) <input type="file" name="foto" accept="image/*"></label>
+  </fieldset>
+  <div class="botones"><button class="boton" type="submit">Registrar ingreso</button> <a class="boton boton-claro" href="/">Cancelar</a></div>
+</form>
+{% endblock %}

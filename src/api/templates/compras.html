@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}Órdenes de compra{% endblock %}
+{% block contenido %}
+<div class="encabezado-pagina"><h1>Órdenes de compra</h1></div>
+<p class="ayuda">Para registrar una falta de existencia abre la orden de servicio y elige el trabajo autorizado.</p>
+{% if ordenes_de_compra %}
+<div class="tabla-contenedor">
+<table class="tabla">
+  <thead><tr><th>Orden de servicio</th><th>Refacción</th><th>Proveedor</th><th>Solicitada</th><th>Estado</th><th></th></tr></thead>
+  <tbody>
+  {% for oc in ordenes_de_compra %}
+    <tr><td><a href="/ordenes/{{ oc.orden_id }}">{{ oc.folio }}</a></td><td>{{ oc.codigo }}</td><td>{{ oc.proveedor }}</td>
+      <td>{{ oc.fecha }}</td><td><span class="estado estado-{{ oc.estado | estilo }}">{{ oc.estado }}</span>{% if oc.recibida %}<div class="ayuda">{{ oc.recibida }}</div>{% endif %}</td>
+      <td>{% if oc.estado == 'Solicitada' %}
+        <form method="post" action="/ordenes-de-compra/{{ oc.id }}/recepcion"><input type="hidden" name="volver" value="/compras">
+          <button class="boton boton-chico" type="submit">Registrar recepción</button></form>{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}<p class="vacio">No hay órdenes de compra.</p>{% endif %}
+{% endblock %}

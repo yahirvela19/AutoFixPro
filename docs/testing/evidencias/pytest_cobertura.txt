@@ -1,0 +1,103 @@
+........................................................................ [ 19%]
+........................................................................ [ 39%]
+........................................................................ [ 59%]
+........................................................................ [ 79%]
+........................................................................ [ 99%]
+.../opt/anaconda3/lib/python3.14/collections/__init__.py:453: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11ae1f4c0>
+  @classmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/anaconda3/lib/python3.14/collections/__init__.py:453: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11af21990>
+  @classmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/anaconda3/lib/python3.14/collections/__init__.py:453: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11af23100>
+  @classmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+                                                                      [100%]
+=============================== warnings summary ===============================
+../../../../../private/tmp/claude-501/-Users-yahirvela-Desktop-Documentos-para-realizar-PIA/26ac3370-3453-4ff7-8554-b7f63e9ab2c1/scratchpad/venv_app/lib/python3.14/site-packages/fastapi/testclient.py:1
+  /private/tmp/claude-501/-Users-yahirvela-Desktop-Documentos-para-realizar-PIA/26ac3370-3453-4ff7-8554-b7f63e9ab2c1/scratchpad/venv_app/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_api.py::test_api_errores_del_negocio_con_codigos_http
+  /private/tmp/claude-501/-Users-yahirvela-Desktop-Documentos-para-realizar-PIA/26ac3370-3453-4ff7-8554-b7f63e9ab2c1/scratchpad/venv_app/lib/python3.14/site-packages/pydantic/_internal/_generate_schema.py:1124: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11aec3010>
+    args = tuple(self._resolve_forward_ref(a) if isinstance(a, ForwardRef) else a for a in args)
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+tests/integration/test_api.py::test_api_documentacion_openapi_activa
+  /opt/anaconda3/lib/python3.14/copy.py:252: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11acd5e40>
+    setattr(y, key, value)
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+tests/integration/test_api.py::test_api_documentacion_openapi_activa
+  /opt/anaconda3/lib/python3.14/copy.py:252: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11acd66b0>
+    setattr(y, key, value)
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+tests/integration/test_web.py::test_web_pide_elegir_rol_y_muestra_menu_por_rol
+  /opt/anaconda3/lib/python3.14/_weakrefset.py:45: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11af23f10>
+    def add(self, item):
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+tests/integration/test_web.py::test_web_flujo_completo_por_roles_sin_mostrar_codigo
+  /private/tmp/claude-501/-Users-yahirvela-Desktop-Documentos-para-realizar-PIA/26ac3370-3453-4ff7-8554-b7f63e9ab2c1/scratchpad/venv_app/lib/python3.14/site-packages/jinja2/nodes.py:140: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11acd6d40>
+    for name, arg in zip(self.fields, fields):
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+tests/integration/test_web.py::test_web_flujo_completo_por_roles_sin_mostrar_codigo
+  /private/tmp/claude-501/-Users-yahirvela-Desktop-Documentos-para-realizar-PIA/26ac3370-3453-4ff7-8554-b7f63e9ab2c1/scratchpad/venv_app/lib/python3.14/site-packages/jinja2/nodes.py:140: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11af222f0>
+    for name, arg in zip(self.fields, fields):
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+tests/paquete_docente/test_paquete_docente.py::test_recurso_no_habilitado_deja_la_orden_en_espera_de_refaccion
+  /opt/anaconda3/lib/python3.14/copy.py:226: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x11b117d30>
+    memo[id(memo)]=[x]
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.14.6-final-0 _______________
+
+Name                                    Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------------------
+src/api/configuracion.py                   36     15     12      0    48%   25-32, 52-58
+src/api/esquemas.py                        57      0      0      0   100%
+src/api/main.py                            44      0      2      1    98%   54->57
+src/api/rutas_api.py                      128      0      4      1    99%   143->147
+src/api/web.py                            304     47     26      6    83%   170, 189, 214-215, 278, 298, 389-392, 402-404, 414-433, 438-441, 467-469, 484-485, 539-540, 550-551, 570, 590-591, 600-601, 604, 611, 621-622
+src/application/comandos.py                21      0      0      0   100%
+src/application/consultas.py              154      5     44      7    94%   65, 168->173, 239, 250, 300->303, 358, 406
+src/application/contenedor.py              42      0      0      0   100%
+src/application/puertos.py                 18      0      0      0   100%
+src/application/servicios.py              257      6     40      9    95%   88, 94, 104->exit, 147->149, 151-152, 354, 365->exit, 448->446, 474->478, 486
+src/domain/cliente.py                      21      1      0      0    95%   23
+src/domain/disputa.py                      30      2      6      2    89%   36, 45
+src/domain/errores.py                      10      0      0      0   100%
+src/domain/estados.py                      63      0      4      0   100%
+src/domain/eventos.py                      45      0      2      0   100%
+src/domain/facturacion_consolidada.py      34      0      4      0   100%
+src/domain/orden_de_compra.py              28      0      2      0   100%
+src/domain/orden_de_servicio.py           364     26    136     29    89%   124, 128-129, 134, 197, 223, 231, 247, 270, 290->280, 348->347, 356, 359, 361, 363, 405, 409, 429, 431, 434, 438->440, 454, 459->461, 461->465, 476, 480, 506, 509, 532, 589, 598
+src/domain/politicas.py                    19      0      0      0   100%
+src/domain/repositorios.py                 16      0     12      0   100%
+src/domain/servicios.py                    24      0      4      0   100%
+src/domain/specifications.py               98      0      4      0   100%
+src/domain/value_objects.py                86      2     12      0    98%   24-25
+src/domain/vehiculo.py                     19      0      2      0   100%
+src/infrastructure/adaptadores.py          58      0     12      0   100%
+src/infrastructure/datos_demo.py           26      1      4      1    93%   34
+src/infrastructure/paquete_docente.py     183      0     36      2    99%   237->236, 266->270
+src/infrastructure/persistencia.py         53      1      4      2    95%   45->47, 49
+src/infrastructure/serializacion.py        59      0     28      0   100%
+-----------------------------------------------------------------------------------
+TOTAL                                    2297    106    400     60    93%
+
+5 empty files skipped.
+Required test coverage of 80% reached. Total coverage: 93.40%
+363 passed, 8 warnings in 3.52s

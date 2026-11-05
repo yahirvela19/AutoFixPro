@@ -33,11 +33,11 @@ Ejecución local del **05/11/2026** con Python 3.14.6 y SQLite en memoria:
 | Verificación | Resultado | Evidencia |
 |---|---|---|
 | Ruff | Sin errores | `evidencias/ruff.txt` |
-| Suite completa | **363 pruebas aprobadas**, 0 fallidas | `evidencias/pytest_cobertura.txt`, `evidencias/pytest_detalle.txt` |
+| Suite completa | **363 pruebas aprobadas**, 0 fallidas (369 tras agregar las pruebas de transacciones y mocks de la E9) | `evidencias/pytest_cobertura.txt`, `evidencias/pytest_detalle.txt` |
 | Cobertura de `src` | **93.40 %** (mínimo exigido: 80 %) | `evidencias/pytest_cobertura.txt` |
 | Paquete docente | 120 casos y 20 transiciones con resultado | `resultados_casos_prueba.csv`, `resultados_transiciones.csv` |
 
-**Pendiente de verificar (no ejecutado en esta máquina):** las pruebas contra PostgreSQL, Docker Compose y GitHub Actions. Docker no está instalado en el equipo donde se generó esta evidencia; el workflow `ci.yml` las ejecuta al subir el repositorio.
+**PostgreSQL, Docker Compose y GitHub Actions:** no se ejecutaron en el equipo local (sin Docker). Se verificaron en GitHub Actions: la primera ejecución del workflow CI/CD terminó en verde en sus tres jobs (https://github.com/yahirvela19/AutoFixPro/actions/runs/42101948087).
 
 ## 4. Evidencia 9 (Unidad 5)
 

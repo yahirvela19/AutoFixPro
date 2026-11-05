@@ -1,0 +1,17 @@
+# Blueprint de Render: aplicación Docker + PostgreSQL administrado.
+services:
+  - type: web
+    name: autofixpro
+    runtime: docker
+    plan: free
+    healthCheckPath: /salud
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: autofixpro-db
+          property: connectionString
+      - key: CARGAR_DATOS_DEMO
+        value: "true"
+databases:
+  - name: autofixpro-db
+    plan: free

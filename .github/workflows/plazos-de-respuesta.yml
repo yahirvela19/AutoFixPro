@@ -1,0 +1,23 @@
+name: Plazos de respuesta (RN-09, ADR-013)
+
+# Cada 15 minutos revisa las cotizaciones sin respuesta y escala al Gerente del Taller a las 24 horas.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  procesar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invocar el procesamiento de plazos
+        env:
+          URL_APP: ${{ secrets.URL_APP }}
+          TOKEN_GERENTE: ${{ secrets.TOKEN_GERENTE }}
+        run: |
+          if [ -z "$URL_APP" ] || [ -z "$TOKEN_GERENTE" ]; then
+            echo "Configura los secretos URL_APP y TOKEN_GERENTE para activar este proceso."
+            exit 0
+          fi
+          curl -sf -X POST "$URL_APP/api/v1/plazos-de-respuesta/procesamiento" \
+            -H "Authorization: Bearer $TOKEN_GERENTE"

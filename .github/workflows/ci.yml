@@ -1,0 +1,70 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  calidad-y-pruebas:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: autofix
+          POSTGRES_PASSWORD: autofix
+          POSTGRES_DB: autofixpro_pruebas
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U autofix" --health-interval 5s --health-timeout 3s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar dependencias
+        run: pip install -r requirements-dev.txt
+      - name: Ruff (estilo y errores)
+        run: ruff check src tests scripts
+      - name: Pruebas con SQLite y cobertura mínima de 80 %
+        run: python -m pytest --cov --cov-report=term --cov-report=xml --cov-fail-under=80
+      - name: Pruebas de integración contra PostgreSQL
+        env:
+          TEST_DATABASE_URL: postgresql+psycopg://autofix:autofix@localhost:5432/autofixpro_pruebas
+        run: python -m pytest tests/integration
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cobertura
+          path: coverage.xml
+
+  docker:
+    needs: calidad-y-pruebas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construir y probar con Docker Compose (DB + App + Tests)
+        run: |
+          docker compose build
+          docker compose --profile test run --rm tests
+          docker compose up -d db app
+          for i in $(seq 1 30); do curl -sf http://localhost:8000/salud && break; sleep 2; done
+          curl -sf http://localhost:8000/api/openapi.json > /dev/null
+          docker compose down -v
+
+  despliegue:
+    needs: docker
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Desplegar en Render (si el hook está configurado)
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            echo "Configura el secreto RENDER_DEPLOY_HOOK para activar el despliegue continuo."
+          else
+            curl -sf -X POST "$RENDER_DEPLOY_HOOK"
+          fi

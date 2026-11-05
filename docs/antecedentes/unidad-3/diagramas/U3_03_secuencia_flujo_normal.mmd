@@ -1,0 +1,19 @@
+sequenceDiagram
+    actor Cliente
+    participant AS as Asesor de servicio
+    participant Svc as AutorizarTrabajosService
+    participant Cli as Cliente (dominio)
+    participant Ord as OrdenDeServicio
+    participant Repo as IOrdenDeServicioRepository
+
+    AS->>Svc: AutorizarTrabajos(ordenId, cotizacionId, trabajos, usuario)
+    Svc->>Repo: ObtenerPorId(ordenId)
+    Repo-->>Svc: OrdenDeServicio
+    Svc->>Cli: validarAutorizador(usuario)
+    Cli-->>Svc: true
+    Svc->>Ord: autorizarTrabajos(trabajos)
+    Ord->>Ord: crea RegistroDeAutorizacion (inmutable)
+    Ord-->>Svc: TrabajoAutorizado / TrabajoRechazado
+    Svc->>Repo: Guardar(ordenDeServicio)
+    Repo-->>Svc: OK
+    Svc-->>AS: confirmacion

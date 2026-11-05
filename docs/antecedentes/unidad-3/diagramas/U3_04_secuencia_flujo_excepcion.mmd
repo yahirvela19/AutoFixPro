@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant Compras
+    participant SvcA as SolicitarRefaccionAProveedorService
+    participant SvcB as MarcarEsperaDeRefaccionService
+    participant Nec as NecesidadDeRefaccion
+    participant RepoOC as IOrdenDeCompraRepository
+    participant RepoOS as IOrdenDeServicioRepository
+    actor Asesor as Asesor de servicio
+    participant SvcC as NotificarNuevaFechaEntregaService
+    participant Not as INotificacionCliente
+
+    Compras->>Nec: verificar existencia
+    Nec-->>Compras: tieneExistencia = false
+    Nec-)SvcA: evento RefaccionSinExistenciaDetectada
+    Nec-)SvcB: evento RefaccionSinExistenciaDetectada
+    SvcA->>RepoOC: guardar(nueva OrdenDeCompra)
+    RepoOC-->>SvcA: OK
+    SvcB->>RepoOS: guardar(orden estado EnEsperaDeRefaccion)
+    RepoOS-->>SvcB: OK
+
+    Asesor->>SvcC: notificarNuevaFecha(ordenId, nuevaFecha)
+    SvcC->>RepoOS: obtenerPorId(ordenId)
+    RepoOS-->>SvcC: OrdenDeServicio
+    SvcC->>RepoOS: guardar(orden con nuevaFechaEstimada)
+    RepoOS-->>SvcC: OK
+    SvcC->>Not: notificar(cliente, nuevaFecha)
+    

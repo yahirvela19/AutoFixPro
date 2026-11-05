@@ -1,0 +1,116 @@
+classDiagram
+    direction LR
+
+    namespace Dominio {
+        class Cliente {
+            -id
+            +tipoCliente
+            +validarAutorizador(usuarioId) bool
+        }
+        class ClienteFlotilla {
+            -responsableCuentaId
+            +esquemaCobro
+            +validarAutorizador(usuarioId) bool
+        }
+        class OrdenDeServicio {
+            +id
+            +vehiculoId
+            +clienteId
+            +estado
+            +fechaIngreso
+            +registrarDiagnostico(diagnostico)
+            +generarCotizacion(montoOriginal, trabajos) Cotizacion
+            +generarCotizacionComplementaria(fallaAdicional, monto, trabajos) Cotizacion
+            +autorizarTrabajos(cotizacionId, cliente, usuarioAutorizador, trabajosAAutorizar, politica) RegistroDeAutorizacion
+            +marcarEnEsperaDeRefaccion()
+            +notificarNuevaFecha(nuevaFecha)
+            +cerrar()
+        }
+        class NecesidadDeRefaccion {
+            +codigoRefaccion
+            +tieneExistencia
+        }
+        class IPoliticaDeAutorizacion {
+            <<Interface>>
+            +requiereNuevaAutorizacionPorAmpliacion(trabajo) bool
+        }
+        class PoliticaAutorizacionEstandar {
+            +requiereNuevaAutorizacionPorAmpliacion(trabajo) bool
+        }
+        class PoliticaAutorizacionAmpliacion {
+            +requiereNuevaAutorizacionPorAmpliacion(trabajo) bool
+        }
+    }
+
+    namespace Aplicacion {
+        class AutorizarTrabajosService {
+            -ordenes
+            -clientes
+            +autorizarTrabajos(ordenId, cotizacionId, usuarioAutorizador, trabajosAAutorizar, esAmpliacion)
+        }
+        class SolicitarRefaccionAProveedorService {
+            -ordenesDeCompra
+            +solicitarRefaccion(trabajoId, proveedor) Guid
+        }
+        class MarcarEsperaDeRefaccionService {
+            -ordenes
+            +marcarEnEspera(ordenId)
+        }
+        class NotificarNuevaFechaEntregaService {
+            -ordenes
+            -notificaciones
+            +notificarNuevaFecha(ordenId, nuevaFecha)
+        }
+        class CerrarOrdenDeServicioService {
+            -ordenes
+            +cerrarOrden(ordenId)
+        }
+    }
+
+    namespace Infraestructura {
+        class IOrdenDeServicioRepository {
+            <<Interface>>
+            +obtenerPorId(ordenId) OrdenDeServicio
+            +obtenerPorVehiculo(vehiculoId) OrdenDeServicio[]
+            +obtenerCerradasPorClienteYPeriodo(clienteId, periodo) OrdenDeServicio[]
+            +guardar(orden)
+        }
+        class OrdenDeServicioRepositorySql {
+            +obtenerPorId(ordenId) OrdenDeServicio
+            +obtenerPorVehiculo(vehiculoId) OrdenDeServicio[]
+            +obtenerCerradasPorClienteYPeriodo(clienteId, periodo) OrdenDeServicio[]
+            +guardar(orden)
+        }
+        class IOrdenDeCompraRepository {
+            <<Interface>>
+            +obtenerPorId(id) OrdenDeCompra
+            +guardar(ordenDeCompra)
+        }
+        class INotificacionCliente {
+            <<Interface>>
+            +notificar(destinatario, mensaje)
+        }
+        class NotificacionSmsWhatsapp {
+            +notificar(destinatario, mensaje)
+        }
+    }
+
+    Cliente <|-- ClienteFlotilla
+    IPoliticaDeAutorizacion <|.. PoliticaAutorizacionEstandar
+    IPoliticaDeAutorizacion <|.. PoliticaAutorizacionAmpliacion
+
+    AutorizarTrabajosService ..> IOrdenDeServicioRepository
+    AutorizarTrabajosService ..> Cliente : usa validarAutorizador()
+    AutorizarTrabajosService ..> IPoliticaDeAutorizacion
+    SolicitarRefaccionAProveedorService ..> IOrdenDeCompraRepository
+    SolicitarRefaccionAProveedorService ..> NecesidadDeRefaccion
+    MarcarEsperaDeRefaccionService ..> IOrdenDeServicioRepository
+    MarcarEsperaDeRefaccionService ..> NecesidadDeRefaccion
+    NotificarNuevaFechaEntregaService ..> IOrdenDeServicioRepository
+    NotificarNuevaFechaEntregaService ..> INotificacionCliente
+    CerrarOrdenDeServicioService ..> IOrdenDeServicioRepository
+
+    IOrdenDeServicioRepository <|.. OrdenDeServicioRepositorySql
+    INotificacionCliente <|.. NotificacionSmsWhatsapp
+
+    note for IOrdenDeServicioRepository "Solo Infraestructura conoce SQL (Dependency Inversion)"

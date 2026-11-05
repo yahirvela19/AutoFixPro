@@ -1,0 +1,110 @@
+classDiagram
+    direction TB
+
+    class Cliente {
+        <<AggregateRoot>>
+        +tipo_cliente
+        +validarAutorizador(usuario) bool
+    }
+    class ClienteFlotilla {
+        <<Entity>>
+        +responsable_cuenta
+        +esquema_cobro
+        +validarAutorizador(usuario) bool
+    }
+    Cliente <|-- ClienteFlotilla
+
+    class Vehiculo {
+        <<AggregateRoot>>
+        +placa
+        +marca
+        +modelo
+        +VIN
+        +kilometraje
+        +nivel_combustible
+        +daños_visibles
+        +motivo_ingreso
+    }
+
+    class OrdenDeServicio {
+        <<AggregateRoot>>
+        +estado
+        +fecha_ingreso
+        +hora_ingreso
+        +nueva_fecha_estimada
+    }
+    class Diagnostico { <<Entity>> +falla_original }
+    class Cotizacion {
+        <<Entity>>
+        +tipo_cotizacion
+        +monto_original
+    }
+    class Trabajo {
+        <<Entity>>
+        +estado_trabajo
+        +porcentaje_ampliacion
+    }
+    class RegistroDeAutorizacion {
+        <<ValueObject>>
+        +usuario_autorizador
+        +fecha_autorizacion
+        +hora_autorizacion
+        +detalle_aprobado
+        +evidencia_digital
+    }
+    class EvidenciaFotografica { <<ValueObject>> +etapa +archivos_adjuntos }
+    class NecesidadDeRefaccion { <<ValueObject>> +tiene_existencia }
+
+    OrdenDeServicio "1" --> "1" Vehiculo : referencia
+    OrdenDeServicio "1" --> "1" Cliente : referencia
+    OrdenDeServicio "1" *-- "1" Diagnostico : Requiere
+    OrdenDeServicio "1" *-- "0..*" Cotizacion : Genera
+    OrdenDeServicio "1" *-- "0..*" EvidenciaFotografica : Contiene
+    Diagnostico "1" --> "0..*" Cotizacion : Deriva en
+    Cotizacion "1" *-- "1..*" Trabajo : Incluye
+    Trabajo "1" *-- "0..1" RegistroDeAutorizacion : Respaldado por
+    Trabajo "1" *-- "0..*" NecesidadDeRefaccion : Necesita
+    Trabajo ..> Cliente : pide validarAutorizador()
+
+    class IPoliticaDeAutorizacion {
+        <<Interface>>
+        +requiereNuevaAutorizacion(trabajo) bool
+    }
+    class PoliticaAutorizacionEstandar { <<DomainService>> }
+    class PoliticaAutorizacionAmpliacion { <<DomainService>> }
+    IPoliticaDeAutorizacion <|.. PoliticaAutorizacionEstandar
+    IPoliticaDeAutorizacion <|.. PoliticaAutorizacionAmpliacion
+    PoliticaAutorizacionAmpliacion ..> Trabajo : evalua mayor a 20%
+    Trabajo ..> IPoliticaDeAutorizacion : selecciona
+
+    class ServicioDeEscalamiento { <<DomainService>> }
+    class ServicioDePriorizacion { <<DomainService>> }
+    ServicioDeEscalamiento ..> OrdenDeServicio : evalua 24h
+    ServicioDePriorizacion ..> ClienteFlotilla : consulta contrato
+    ServicioDePriorizacion ..> Vehiculo : prioridad
+
+    class OrdenDeCompra { <<AggregateRoot>> +proveedor }
+    NecesidadDeRefaccion ..> OrdenDeCompra : Genera si falta
+
+    class FacturacionConsolidada { <<AggregateRoot>> +periodo }
+    FacturacionConsolidada "1" --> "1..*" OrdenDeServicio : Agrupa
+    ClienteFlotilla "1" --> "0..*" FacturacionConsolidada : Recibe mensual
+
+    class RefaccionSinExistenciaDetectada { <<DomainEvent>> }
+    NecesidadDeRefaccion ..> RefaccionSinExistenciaDetectada : emite
+    class VehiculoRecibido { <<DomainEvent>> }
+    class DiagnosticoRegistrado { <<DomainEvent>> }
+    class CotizacionGenerada { <<DomainEvent>> }
+    class TrabajoAutorizado { <<DomainEvent>> }
+    class TrabajoRechazado { <<DomainEvent>> }
+    class FallaAdicionalReportada { <<DomainEvent>> }
+    class NuevaFechaEntregaNotificada { <<DomainEvent>> }
+    class OrdenDeServicioCerrada { <<DomainEvent>> }
+    Vehiculo ..> VehiculoRecibido : emite
+    Diagnostico ..> DiagnosticoRegistrado : emite
+    Cotizacion ..> CotizacionGenerada : emite
+    Trabajo ..> TrabajoAutorizado : emite
+    Trabajo ..> TrabajoRechazado : emite
+    Trabajo ..> FallaAdicionalReportada : emite
+    OrdenDeServicio ..> NuevaFechaEntregaNotificada : emite
+    OrdenDeServicio ..> OrdenDeServicioCerrada : emite

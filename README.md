@@ -16,6 +16,8 @@ Aplicación que digitaliza el proceso de servicio de AutoFix Pro: registro de in
 | [docs/architecture/Trazabilidad.md](docs/architecture/Trazabilidad.md) | Historia → regla → BPMN → dominio → API → prueba |
 | [docs/api/](docs/api/) | Contrato OpenAPI exportado |
 | [docs/testing/](docs/testing/) | Plan de pruebas, evidencias, resultados del paquete docente y sus diferencias |
+| [docs/Cambios_respecto_a_U2_U3.md](docs/Cambios_respecto_a_U2_U3.md) | Hallazgos, decisiones y cambios frente a la Unidad 2 y la Unidad 3 (BRD, BPMN, dominio, UML, ADRs) |
+| [docs/antecedentes/](docs/antecedentes/) | Entregables originales de la Unidad 2 y la Unidad 3, sin modificar |
 
 ## Estructura
 

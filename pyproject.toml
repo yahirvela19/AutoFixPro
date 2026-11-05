@@ -1,0 +1,27 @@
+[project]
+name = "autofixpro"
+version = "1.0.0"
+description = "AutoFix Pro: órdenes de servicio de un taller automotriz (PIA, Componentes de Lógica de Negocio, Equipo 6)"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+omit = ["src/api/__main__.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+# B008: patrón Depends() de FastAPI. UP046: se conservan Generic[T] por claridad didáctica.
+ignore = ["B008", "UP046"]

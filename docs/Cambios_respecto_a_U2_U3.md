@@ -523,7 +523,7 @@ La U3 se materializó en React/JS sin API, base de datos ni pruebas automatizada
 - API REST documentada con OpenAPI (ADR-008);
 - interfaz web orientada a la usabilidad (ADR-014);
 - persistencia en PostgreSQL (ADR-009);
-- 363 pruebas con 93.40 % de cobertura;
+- 375 pruebas con 92.85 % de cobertura;
 - Docker Compose, CI/CD en GitHub Actions y despliegue en Render.
 
 Ver [README.md](../README.md) y [testing/Plan_de_pruebas.md](testing/Plan_de_pruebas.md).

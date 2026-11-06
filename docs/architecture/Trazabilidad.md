@@ -4,7 +4,7 @@
 
 Cada fila sigue una historia desde la necesidad del negocio hasta su verificación. Fuentes: `docs/BRD.md` (BN, US, RN, CE), `docs/bpmn/BPMN_AutoFixPro_v2.drawio` (tareas BPMN), `docs/architecture/Arquitectura.md` (dominio, casos de uso, API) y `docs/architecture/ADRs.md`.
 
-La columna **Prueba de aceptación** contiene el nombre de la prueba automatizada en `tests/unit/test_historias.py`. **Resultado registrado el 05/11/2026:** todas aprobadas (363 pruebas en total, cobertura 93.40 %; evidencia en `docs/testing/evidencias/`).
+La columna **Prueba de aceptación** contiene el nombre de la prueba automatizada en `tests/unit/test_historias.py`. **Resultado registrado el 06/11/2026:** todas aprobadas (375 pruebas en total, cobertura 92.85 %; evidencia en `docs/testing/evidencias/`).
 
 ## 1. Necesidad → criterio de éxito
 

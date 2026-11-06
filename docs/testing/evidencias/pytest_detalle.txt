@@ -1,363 +1,375 @@
-tests/integration/test_api.py::test_api_flujo_completo_de_una_orden_particular PASSED
-tests/integration/test_api.py::test_api_errores_del_negocio_con_codigos_http PASSED
-tests/integration/test_api.py::test_api_flotilla_refaccion_y_facturacion PASSED
-tests/integration/test_api.py::test_api_falla_adicional_ampliacion_cola_plazos_disputas_e_indicadores PASSED
-tests/integration/test_api.py::test_api_documentacion_openapi_activa PASSED
-tests/integration/test_persistencia.py::test_persistencia_de_la_orden_completa_y_notificaciones PASSED
-tests/integration/test_web.py::test_web_pide_elegir_rol_y_muestra_menu_por_rol PASSED
-tests/integration/test_web.py::test_web_sin_sesion_redirige_con_mensaje PASSED
-tests/integration/test_web.py::test_web_flujo_completo_por_roles_sin_mostrar_codigo PASSED
-tests/integration/test_web.py::test_web_pantallas_de_compras_caja_gerente_y_cola PASSED
-tests/paquete_docente/test_paquete_docente.py::test_paquete_se_importa_con_claves_foraneas PASSED
-tests/paquete_docente/test_paquete_docente.py::test_total_con_decimal PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T001] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B001] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T002] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B002] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T003] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B003] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T004] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B004] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T005] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B005] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T006] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B006] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T007] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B007] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T008] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B008] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T009] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B009] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T010] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B010] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T011] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B011] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T012] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B012] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T013] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B013] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T014] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B014] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T015] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B015] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T016] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B016] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T017] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B017] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T018] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B018] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T019] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B019] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T020] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B020] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T021] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B021] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T022] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B022] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T023] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B023] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T024] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B024] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T025] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B025] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T026] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B026] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T027] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B027] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T028] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B028] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T029] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B029] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T030] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B030] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T031] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B031] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T032] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B032] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T033] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B033] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T034] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B034] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T035] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B035] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T036] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B036] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T037] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B037] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T038] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B038] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T039] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B039] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T040] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B040] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T041] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B041] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T042] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B042] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T043] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B043] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T044] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B044] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T045] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B045] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T046] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B046] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T047] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B047] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T048] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B048] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T049] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B049] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T050] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B050] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T051] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B051] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T052] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B052] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T053] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B053] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T054] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B054] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T055] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B055] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T056] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B056] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T057] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B057] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T058] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B058] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T059] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B059] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T060] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B060] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S001] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S002] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S003] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S004] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S005] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S006] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S007] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S008] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S009] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S010] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S011] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S012] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S013] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S014] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S015] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S016] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S017] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S018] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S019] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S020] PASSED
-tests/paquete_docente/test_paquete_docente.py::test_recurso_no_habilitado_deja_la_orden_en_espera_de_refaccion PASSED
-tests/paquete_docente/test_paquete_docente.py::test_composicion_de_specifications_del_paquete PASSED
-tests/paquete_docente/test_paquete_docente.py::test_resultados_se_escriben_en_csv PASSED
-tests/unit/test_historias.py::test_us01_registro_de_ingreso_crea_orden_recibido PASSED
-tests/unit/test_historias.py::test_us01_ingreso_con_datos_incompletos_se_rechaza PASSED
-tests/unit/test_historias.py::test_us01_placa_de_otro_cliente_se_rechaza PASSED
-tests/unit/test_historias.py::test_us02_evidencia_fotografica_de_ingreso PASSED
-tests/unit/test_historias.py::test_us03_diagnostico_cambia_a_diagnosticado PASSED
-tests/unit/test_historias.py::test_us03_diagnostico_vacio_se_rechaza PASSED
-tests/unit/test_historias.py::test_us04_cotizacion_inicial_deja_trabajos_pendientes PASSED
-tests/unit/test_historias.py::test_us04_cotizacion_sin_diagnostico_se_rechaza PASSED
-tests/unit/test_historias.py::test_us05_autorizacion_total PASSED
-tests/unit/test_historias.py::test_us05_autorizador_no_valido_se_rechaza PASSED
-tests/unit/test_historias.py::test_us05_tecnico_no_puede_autorizar PASSED
-tests/unit/test_historias.py::test_us06_autorizacion_parcial PASSED
-tests/unit/test_historias.py::test_us07_registro_de_autorizacion_completo PASSED
-tests/unit/test_historias.py::test_us07_decision_ya_registrada_no_se_modifica PASSED
-tests/unit/test_historias.py::test_us07_decision_incompleta_o_sin_evidencia_se_rechaza PASSED
-tests/unit/test_historias.py::test_us08_solo_trabajos_autorizados_son_ejecutables PASSED
-tests/unit/test_historias.py::test_us08_trabajo_no_autorizado_no_inicia PASSED
-tests/unit/test_historias.py::test_us08_ultimo_trabajo_terminado_deja_listo_para_entrega PASSED
-tests/unit/test_historias.py::test_us09_falla_adicional_crea_cotizacion_complementaria PASSED
-tests/unit/test_historias.py::test_us09_rechazo_complementaria_regresa_a_en_reparacion PASSED
-tests/unit/test_historias.py::test_us09_falla_adicional_requiere_reparacion_en_curso PASSED
-tests/unit/test_historias.py::test_us10_ampliacion_20_por_ciento_no_requiere_autorizacion PASSED
-tests/unit/test_historias.py::test_us10_ampliacion_mayor_20_por_ciento_bloquea_trabajo PASSED
-tests/unit/test_historias.py::test_us10_ampliacion_rechazada_continua_con_monto_autorizado PASSED
-tests/unit/test_historias.py::test_us11_falta_de_existencia_genera_orden_de_compra PASSED
-tests/unit/test_historias.py::test_us11_orden_de_compra_no_se_duplica PASSED
-tests/unit/test_historias.py::test_us12_orden_en_espera_de_refaccion PASSED
-tests/unit/test_historias.py::test_us13_nueva_fecha_notifica_al_cliente PASSED
-tests/unit/test_historias.py::test_us13_fecha_anterior_a_hoy_se_rechaza PASSED
-tests/unit/test_historias.py::test_us23_recepcion_reanuda_reparacion PASSED
-tests/unit/test_historias.py::test_us23_recepcion_duplicada_se_rechaza PASSED
-tests/unit/test_historias.py::test_us14_cliente_consulta_su_orden PASSED
-tests/unit/test_historias.py::test_us14_orden_ajena_acceso_negado PASSED
-tests/unit/test_historias.py::test_us15_indicadores_del_periodo PASSED
-tests/unit/test_historias.py::test_us15_solo_gerente_consulta_indicadores PASSED
-tests/unit/test_historias.py::test_us16_responsable_de_cuenta_autoriza PASSED
-tests/unit/test_historias.py::test_us16_contacto_no_registrado_se_rechaza PASSED
-tests/unit/test_historias.py::test_us17_consolida_ordenes_cerradas_del_mes PASSED
-tests/unit/test_historias.py::test_us17_orden_no_se_factura_dos_veces PASSED
-tests/unit/test_historias.py::test_us18_prioridad_contractual_primero_en_cola_de_atencion PASSED
-tests/unit/test_historias.py::test_us19_solo_se_cobran_trabajos_terminados PASSED
-tests/unit/test_historias.py::test_us19_pago_cierra_la_orden PASSED
-tests/unit/test_historias.py::test_us19_no_se_cierra_antes_de_listo_para_entrega PASSED
-tests/unit/test_historias.py::test_us20_evidencia_fotografica_de_entrega PASSED
-tests/unit/test_historias.py::test_us21_rechazo_total_con_diagnostico_aceptado PASSED
-tests/unit/test_historias.py::test_us21_rechazo_total_sin_cargo PASSED
-tests/unit/test_historias.py::test_rn14_orden_cerrada_no_se_reabre PASSED
-tests/unit/test_historias.py::test_us22_23h59_no_escala PASSED
-tests/unit/test_historias.py::test_us22_24h_escala_y_notifica_una_vez PASSED
-tests/unit/test_historias.py::test_us22_respuesta_tardia_pasa_a_en_reparacion PASSED
-tests/unit/test_historias.py::test_us24_cliente_registra_disputa PASSED
-tests/unit/test_historias.py::test_us24_gerente_resuelve_disputa PASSED
-tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[True-True] PASSED
-tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[True-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[False-True] PASSED
-tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[False-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[1999.99-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[2000.00-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[2000.01-True] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[0-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn06_sin_base_autorizada_cualquier_ampliacion_requiere_autorizacion PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn05_todo_trabajo_nuevo_requiere_autorizacion PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario0-cliente0-True] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario1-cliente1-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario2-cliente2-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario3-cliente3-True] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario4-cliente4-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario5-cliente5-False] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Recibido-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Diagnosticado-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Cotizado-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de autorizaci\xf3n-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de autorizaci\xf3n-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de autorizaci\xf3n-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de cliente-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de cliente-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En reparaci\xf3n-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En reparaci\xf3n-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En reparaci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de refacci\xf3n-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Listo para entrega-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Recibido] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Diagnosticado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Cotizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En espera de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En espera de cliente] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Listo para entrega] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Cerrado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Cerrada sin reparaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Pendiente de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Autorizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Rechazado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-En ejecuci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Terminado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Pendiente de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Autorizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Rechazado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-En ejecuci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Terminado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Pendiente de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Autorizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Rechazado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-En ejecuci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Terminado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Pendiente de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Autorizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Rechazado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-En ejecuci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Terminado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Pendiente de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Autorizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Rechazado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-En ejecuci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Terminado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Pendiente de autorizaci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Autorizado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Rechazado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-En espera de refacci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-En ejecuci\xf3n] PASSED
-tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Terminado] PASSED
-tests/unit/test_reglas_del_dominio.py::test_estados_usan_el_texto_del_glosario PASSED
-tests/unit/test_reglas_del_dominio.py::test_monto_usa_decimal_y_rechaza_negativos PASSED
-tests/unit/test_reglas_del_dominio.py::test_value_objects_validan_datos PASSED
-tests/unit/test_reglas_del_dominio.py::test_plazo_de_respuesta_configurable PASSED
+PASSED tests/integration/test_api.py::test_api_flujo_completo_de_una_orden_particular
+PASSED tests/integration/test_api.py::test_api_errores_del_negocio_con_codigos_http
+PASSED tests/integration/test_api.py::test_api_flotilla_refaccion_y_facturacion
+PASSED tests/integration/test_api.py::test_api_falla_adicional_ampliacion_cola_plazos_disputas_e_indicadores
+PASSED tests/integration/test_api.py::test_api_documentacion_openapi_activa
+PASSED tests/integration/test_api_texto.py::test_flujo_completo_en_texto_siguiendo_los_identificadores
+PASSED tests/integration/test_api_texto.py::test_errores_en_texto_con_su_codigo
+PASSED tests/integration/test_api_texto.py::test_flotilla_ampliacion_refaccion_y_consultas_en_texto
+PASSED tests/integration/test_api_texto.py::test_sin_pedir_texto_la_api_sigue_respondiendo_json
+PASSED tests/integration/test_api_texto.py::test_openapi_declara_texto_como_primer_formato
+PASSED tests/integration/test_api_texto.py::test_swagger_pide_texto_por_defecto
+PASSED tests/integration/test_persistencia.py::test_persistencia_de_la_orden_completa_y_notificaciones
+PASSED tests/integration/test_transacciones_y_mocks.py::test_commit_persiste_la_orden
+PASSED tests/integration/test_transacciones_y_mocks.py::test_rollback_descarta_la_orden
+PASSED tests/integration/test_transacciones_y_mocks.py::test_aviso_al_cliente_con_mock_sin_envio_real
+PASSED tests/integration/test_transacciones_y_mocks.py::test_falla_del_proveedor_de_avisos
+PASSED tests/integration/test_web.py::test_web_pide_elegir_rol_y_muestra_menu_por_rol
+PASSED tests/integration/test_web.py::test_web_sin_sesion_redirige_con_mensaje
+PASSED tests/integration/test_web.py::test_web_flujo_completo_por_roles_sin_mostrar_codigo
+PASSED tests/integration/test_web.py::test_web_pantallas_de_compras_caja_gerente_y_cola
+PASSED tests/paquete_docente/test_paquete_docente.py::test_paquete_se_importa_con_claves_foraneas
+PASSED tests/paquete_docente/test_paquete_docente.py::test_total_con_decimal
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T001]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B001]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T002]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B002]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T003]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B003]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T004]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B004]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T005]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B005]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T006]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B006]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T007]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B007]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T008]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B008]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T009]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B009]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T010]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B010]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T011]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B011]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T012]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B012]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T013]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B013]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T014]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B014]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T015]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B015]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T016]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B016]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T017]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B017]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T018]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B018]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T019]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B019]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T020]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B020]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T021]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B021]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T022]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B022]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T023]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B023]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T024]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B024]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T025]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B025]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T026]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B026]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T027]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B027]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T028]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B028]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T029]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B029]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T030]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B030]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T031]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B031]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T032]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B032]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T033]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B033]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T034]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B034]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T035]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B035]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T036]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B036]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T037]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B037]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T038]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B038]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T039]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B039]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T040]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B040]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T041]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B041]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T042]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B042]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T043]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B043]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T044]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B044]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T045]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B045]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T046]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B046]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T047]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B047]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T048]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B048]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T049]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B049]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T050]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B050]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T051]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B051]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T052]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B052]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T053]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B053]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T054]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B054]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T055]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B055]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T056]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B056]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T057]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B057]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T058]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B058]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T059]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B059]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-T060]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_casos_de_prueba_del_paquete[AUT-B060]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S001]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S002]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S003]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S004]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S005]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S006]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S007]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S008]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S009]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S010]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S011]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S012]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S013]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S014]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S015]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S016]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S017]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S018]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S019]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_transiciones_del_paquete[AUT-S020]
+PASSED tests/paquete_docente/test_paquete_docente.py::test_recurso_no_habilitado_deja_la_orden_en_espera_de_refaccion
+PASSED tests/paquete_docente/test_paquete_docente.py::test_composicion_de_specifications_del_paquete
+PASSED tests/paquete_docente/test_paquete_docente.py::test_resultados_se_escriben_en_csv
+PASSED tests/unit/test_calculos_de_cotizacion.py::test_total_de_cotizacion_con_cantidades
+PASSED tests/unit/test_calculos_de_cotizacion.py::test_cobro_incluye_diagnostico_solo_si_fue_aceptado
+PASSED tests/unit/test_historias.py::test_us01_registro_de_ingreso_crea_orden_recibido
+PASSED tests/unit/test_historias.py::test_us01_ingreso_con_datos_incompletos_se_rechaza
+PASSED tests/unit/test_historias.py::test_us01_placa_de_otro_cliente_se_rechaza
+PASSED tests/unit/test_historias.py::test_us02_evidencia_fotografica_de_ingreso
+PASSED tests/unit/test_historias.py::test_us03_diagnostico_cambia_a_diagnosticado
+PASSED tests/unit/test_historias.py::test_us03_diagnostico_vacio_se_rechaza
+PASSED tests/unit/test_historias.py::test_us04_cotizacion_inicial_deja_trabajos_pendientes
+PASSED tests/unit/test_historias.py::test_us04_cotizacion_sin_diagnostico_se_rechaza
+PASSED tests/unit/test_historias.py::test_us05_autorizacion_total
+PASSED tests/unit/test_historias.py::test_us05_autorizador_no_valido_se_rechaza
+PASSED tests/unit/test_historias.py::test_us05_tecnico_no_puede_autorizar
+PASSED tests/unit/test_historias.py::test_us06_autorizacion_parcial
+PASSED tests/unit/test_historias.py::test_us07_registro_de_autorizacion_completo
+PASSED tests/unit/test_historias.py::test_us07_decision_ya_registrada_no_se_modifica
+PASSED tests/unit/test_historias.py::test_us07_decision_incompleta_o_sin_evidencia_se_rechaza
+PASSED tests/unit/test_historias.py::test_us08_solo_trabajos_autorizados_son_ejecutables
+PASSED tests/unit/test_historias.py::test_us08_trabajo_no_autorizado_no_inicia
+PASSED tests/unit/test_historias.py::test_us08_ultimo_trabajo_terminado_deja_listo_para_entrega
+PASSED tests/unit/test_historias.py::test_us09_falla_adicional_crea_cotizacion_complementaria
+PASSED tests/unit/test_historias.py::test_us09_rechazo_complementaria_regresa_a_en_reparacion
+PASSED tests/unit/test_historias.py::test_us09_falla_adicional_requiere_reparacion_en_curso
+PASSED tests/unit/test_historias.py::test_us10_ampliacion_20_por_ciento_no_requiere_autorizacion
+PASSED tests/unit/test_historias.py::test_us10_ampliacion_mayor_20_por_ciento_bloquea_trabajo
+PASSED tests/unit/test_historias.py::test_us10_ampliacion_rechazada_continua_con_monto_autorizado
+PASSED tests/unit/test_historias.py::test_us11_falta_de_existencia_genera_orden_de_compra
+PASSED tests/unit/test_historias.py::test_us11_orden_de_compra_no_se_duplica
+PASSED tests/unit/test_historias.py::test_us12_orden_en_espera_de_refaccion
+PASSED tests/unit/test_historias.py::test_us13_nueva_fecha_notifica_al_cliente
+PASSED tests/unit/test_historias.py::test_us13_fecha_anterior_a_hoy_se_rechaza
+PASSED tests/unit/test_historias.py::test_us23_recepcion_reanuda_reparacion
+PASSED tests/unit/test_historias.py::test_us23_recepcion_duplicada_se_rechaza
+PASSED tests/unit/test_historias.py::test_us14_cliente_consulta_su_orden
+PASSED tests/unit/test_historias.py::test_us14_orden_ajena_acceso_negado
+PASSED tests/unit/test_historias.py::test_us15_indicadores_del_periodo
+PASSED tests/unit/test_historias.py::test_us15_solo_gerente_consulta_indicadores
+PASSED tests/unit/test_historias.py::test_us16_responsable_de_cuenta_autoriza
+PASSED tests/unit/test_historias.py::test_us16_contacto_no_registrado_se_rechaza
+PASSED tests/unit/test_historias.py::test_us17_consolida_ordenes_cerradas_del_mes
+PASSED tests/unit/test_historias.py::test_us17_orden_no_se_factura_dos_veces
+PASSED tests/unit/test_historias.py::test_us18_prioridad_contractual_primero_en_cola_de_atencion
+PASSED tests/unit/test_historias.py::test_us19_solo_se_cobran_trabajos_terminados
+PASSED tests/unit/test_historias.py::test_us19_pago_cierra_la_orden
+PASSED tests/unit/test_historias.py::test_us19_no_se_cierra_antes_de_listo_para_entrega
+PASSED tests/unit/test_historias.py::test_us20_evidencia_fotografica_de_entrega
+PASSED tests/unit/test_historias.py::test_us21_rechazo_total_con_diagnostico_aceptado
+PASSED tests/unit/test_historias.py::test_us21_rechazo_total_sin_cargo
+PASSED tests/unit/test_historias.py::test_rn14_orden_cerrada_no_se_reabre
+PASSED tests/unit/test_historias.py::test_us22_23h59_no_escala
+PASSED tests/unit/test_historias.py::test_us22_24h_escala_y_notifica_una_vez
+PASSED tests/unit/test_historias.py::test_us22_respuesta_tardia_pasa_a_en_reparacion
+PASSED tests/unit/test_historias.py::test_us24_cliente_registra_disputa
+PASSED tests/unit/test_historias.py::test_us24_gerente_resuelve_disputa
+PASSED tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[True-True]
+PASSED tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[True-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[False-True]
+PASSED tests/unit/test_reglas_del_dominio.py::test_specification_combinadores_y_o_no[False-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[1999.99-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[2000.00-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[2000.01-True]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn06_umbral_del_20_por_ciento[0-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn06_sin_base_autorizada_cualquier_ampliacion_requiere_autorizacion
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn05_todo_trabajo_nuevo_requiere_autorizacion
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario0-cliente0-True]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario1-cliente1-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario2-cliente2-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario3-cliente3-True]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario4-cliente4-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_rn02_autorizador_valido_polimorfico[usuario5-cliente5-False]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Recibido-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Diagnosticado-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Cotizado-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de autorizaci\xf3n-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de autorizaci\xf3n-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de autorizaci\xf3n-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de cliente-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de cliente-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En reparaci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En reparaci\xf3n-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En reparaci\xf3n-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[En espera de refacci\xf3n-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_permitidas[Listo para entrega-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Recibido-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Diagnosticado-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cotizado-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de autorizaci\xf3n-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de cliente-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En reparaci\xf3n-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[En espera de refacci\xf3n-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Listo para entrega-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrado-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Recibido]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Diagnosticado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Cotizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En espera de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En espera de cliente]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Listo para entrega]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Cerrado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_orden_transiciones_prohibidas[Cerrada sin reparaci\xf3n-Cerrada sin reparaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Pendiente de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Autorizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Rechazado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-En ejecuci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Pendiente de autorizaci\xf3n-Terminado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Pendiente de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Autorizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Rechazado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-En ejecuci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Autorizado-Terminado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Pendiente de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Autorizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Rechazado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-En ejecuci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Rechazado-Terminado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Pendiente de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Autorizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Rechazado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-En ejecuci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En espera de refacci\xf3n-Terminado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Pendiente de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Autorizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Rechazado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-En ejecuci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[En ejecuci\xf3n-Terminado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Pendiente de autorizaci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Autorizado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Rechazado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-En espera de refacci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-En ejecuci\xf3n]
+PASSED tests/unit/test_reglas_del_dominio.py::test_maquina_de_estados_trabajo[Terminado-Terminado]
+PASSED tests/unit/test_reglas_del_dominio.py::test_estados_usan_el_texto_del_glosario
+PASSED tests/unit/test_reglas_del_dominio.py::test_monto_usa_decimal_y_rechaza_negativos
+PASSED tests/unit/test_reglas_del_dominio.py::test_value_objects_validan_datos
+PASSED tests/unit/test_reglas_del_dominio.py::test_plazo_de_respuesta_configurable

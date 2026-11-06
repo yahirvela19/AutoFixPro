@@ -186,7 +186,7 @@ ADR-001 a ADR-004 provienen de la Unidad 3 (`Unidad 3 AutoFixPro/docs/ADR.pdf`) 
   1. Cada endpoint responde **texto** si la petición pide `Accept: text/plain` y **JSON** en cualquier otro caso. Los mensajes están en `src/api/mensajes.py`, usan el lenguaje del glosario y terminan con «Para continuar en Swagger:» y los identificadores, con el mismo nombre que los parámetros de Swagger (`orden_id`, `cotizacion_id`, `trabajo_id`…).
   2. Los errores del negocio responden «No se pudo completar la acción: …» con su código HTTP.
   3. El contrato OpenAPI declara `text/plain` como primer formato de cada respuesta.
-  4. La página `/docs` pide `text/plain` cuando Swagger no indica un formato (Swagger 5 envía `*/*` por defecto). Si el usuario elige `application/json` en «Media type», se muestra el JSON.
+  4. La página `/docs` fija en `text/plain` el selector «Media type» de cada operación al cargar y, si una petición llega con `*/*`, pide `text/plain`. Si el usuario elige `application/json` en «Media type», se muestra el JSON.
 - **Consecuencias:** En Swagger solo se ven mensajes con los identificadores necesarios. El contrato JSON, las pruebas existentes, el CI y la interfaz web no cambian. Se agregan pruebas del modo texto (`tests/integration/test_api_texto.py`). Los datos de entrada (*Request body*) siguen en JSON, que es propio de Swagger.
 - **Trazabilidad:** US-01 a US-24; requisito de Swagger activo en producción para la demostración.
 

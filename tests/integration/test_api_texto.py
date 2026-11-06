@@ -112,6 +112,12 @@ def test_errores_en_texto_con_su_codigo(api):
     assert r.status_code == 401 and "token" in r.text and sin_json(r.text)
     r = api.post("/api/v1/ordenes-de-servicio", json={"cliente_id": "CLI-001"}, headers=texto("asesor-demo"))
     assert r.status_code == 422 and "Revisa los datos enviados" in r.text and sin_json(r.text)
+    r = api.post(
+        "/api/v1/ordenes-de-servicio",
+        content='{"cliente_id": "CLI-001",',
+        headers={**texto("asesor-demo"), "Content-Type": "application/json"},
+    )
+    assert r.status_code == 422 and "no es un JSON válido" in r.text
 
 
 def test_flotilla_ampliacion_refaccion_y_consultas_en_texto(api):
@@ -193,4 +199,4 @@ def test_openapi_declara_texto_como_primer_formato(api):
 def test_swagger_pide_texto_por_defecto(api):
     pagina = api.get("/docs")
     assert pagina.status_code == 200 and "SwaggerUIBundle" in pagina.text
-    assert "requestInterceptor" in pagina.text and "'text/plain'" in pagina.text
+    assert "requestInterceptor" in pagina.text and "changeProducesValue" in pagina.text

@@ -84,8 +84,12 @@ def crear_app(configuracion: Configuracion | None = None, reloj=None) -> FastAPI
 
     @app.exception_handler(RequestValidationError)
     async def error_de_validacion(request: Request, error: RequestValidationError):
-        campos = ", ".join(str(e["loc"][-1]) for e in error.errors())
-        return respuesta_de_error(request, f"Revisa los datos enviados: {campos}.", 422)
+        if any(e.get("type") == "json_invalid" for e in error.errors()):
+            mensaje = "El cuerpo de la petición no es un JSON válido; revisa las comas, comillas y llaves."
+        else:
+            campos = ", ".join(str(e["loc"][-1]) for e in error.errors())
+            mensaje = f"Revisa los datos enviados: {campos}."
+        return respuesta_de_error(request, mensaje, 422)
 
     def contrato_openapi():
         """Declara «text/plain» como primer formato de cada respuesta para que Swagger muestre mensajes (ADR-015)."""
@@ -113,7 +117,7 @@ def crear_app(configuracion: Configuracion | None = None, reloj=None) -> FastAPI
     def swagger_ui():
         """Swagger UI que pide mensajes de texto por defecto (ADR-015).
 
-        Swagger 5 envía «Accept: */*» hasta que el usuario elige un formato en «Media type»; en ese caso se pide
+        Al cargar, el selector «Media type» de cada operación se fija en «text/plain». Si aun así llega «*/*», se pide
         «text/plain». Si el usuario elige «application/json», Swagger lo envía tal cual y se muestra el JSON.
         """
         pagina = get_swagger_ui_html(openapi_url=app.openapi_url, title=f"{app.title} - Swagger UI").body.decode()
@@ -123,6 +127,9 @@ def crear_app(configuracion: Configuracion | None = None, reloj=None) -> FastAPI
             " if (!formato || formato === '*/*') { delete peticion.headers['accept'];"
             " peticion.headers['Accept'] = 'text/plain'; }"
             " return peticion; },"
+            "onComplete: () => { const rutas = ui.specSelectors.specJson().toJS().paths || {};"
+            " Object.entries(rutas).forEach(([ruta, operaciones]) => Object.keys(operaciones).forEach("
+            " (metodo) => ui.specActions.changeProducesValue([ruta, metodo], 'text/plain'))); },"
         )
         pagina = pagina.replace("const ui = SwaggerUIBundle({", "const ui = SwaggerUIBundle({\n    " + interceptor, 1)
         return HTMLResponse(pagina)

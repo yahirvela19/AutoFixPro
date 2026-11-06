@@ -18,6 +18,7 @@ Aplicación que digitaliza el proceso de servicio de AutoFix Pro: registro de in
 | [docs/testing/](docs/testing/) | Plan de pruebas, evidencias, resultados del paquete docente y sus diferencias |
 | [docs/Cambios_respecto_a_U2_U3.md](docs/Cambios_respecto_a_U2_U3.md) | Hallazgos, decisiones y cambios frente a la Unidad 2 y la Unidad 3 (BRD, BPMN, dominio, UML, ADRs) |
 | [docs/antecedentes/](docs/antecedentes/) | Entregables originales de la Unidad 2 y la Unidad 3, sin modificar |
+| [docs/entrega/](docs/entrega/) | Entrega final del PIA: reporte (PDF y Word) y presentación de la defensa (PDF y PowerPoint) |
 
 ## Estructura
 

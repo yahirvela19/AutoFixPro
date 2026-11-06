@@ -706,6 +706,8 @@ sequenceDiagram
 | POST | `/api/v1/disputas/{id}/resolucion` | Gerente del Taller | US-24 |
 | GET | `/api/v1/indicadores?desde=&hasta=` | Gerente del Taller | US-15 |
 
+**Formato de respuesta (ADR-015):** con `Accept: text/plain` (lo que pide Swagger por defecto) cada endpoint responde un mensaje de confirmación con los identificadores para continuar el flujo; en cualquier otro caso responde JSON.
+
 Errores del dominio → HTTP: `DatosIncompletos` 422 · `AutorizadorNoValido` / `RolNoPermitido` 403 · `TransicionNoPermitida` 409 · `DecisionYaRegistrada` 409 · `RecursoNoEncontrado` 404. Los mensajes usan el lenguaje del negocio. El contrato completo se publica con OpenAPI/Swagger en `docs/api/` (ADR-008).
 
 ## 11. Revisión SOLID

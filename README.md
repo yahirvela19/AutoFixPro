@@ -12,7 +12,7 @@ Aplicación que digitaliza el proceso de servicio de AutoFix Pro: registro de in
 | [docs/BRD.md](docs/BRD.md) | BRD, 16 reglas de negocio, 24 historias con Gherkin, estados, glosario y trazabilidad |
 | [docs/bpmn/BPMN_AutoFixPro_v2.drawio](docs/bpmn/BPMN_AutoFixPro_v2.drawio) | Proceso de servicio en BPMN (abrir con app.diagrams.net) |
 | [docs/architecture/Arquitectura.md](docs/architecture/Arquitectura.md) | Lenguaje ubicuo, DDD, UML, Specifications, máquinas de estado, API y SOLID |
-| [docs/architecture/ADRs.md](docs/architecture/ADRs.md) | ADR-001 a ADR-014 |
+| [docs/architecture/ADRs.md](docs/architecture/ADRs.md) | ADR-001 a ADR-015 |
 | [docs/architecture/Trazabilidad.md](docs/architecture/Trazabilidad.md) | Historia → regla → BPMN → dominio → API → prueba |
 | [docs/api/](docs/api/) | Contrato OpenAPI exportado |
 | [docs/testing/](docs/testing/) | Plan de pruebas, evidencias, resultados del paquete docente y sus diferencias |
@@ -46,6 +46,7 @@ uvicorn src.api.main:crear_app --factory --reload
 
 - Interfaz web: <http://localhost:8000>
 - Swagger UI: <http://localhost:8000/docs> · OpenAPI: <http://localhost:8000/api/openapi.json>
+- En Swagger, las respuestas se muestran como mensajes de texto con los identificadores para seguir el flujo (ADR-015). Para ver el JSON, elige `application/json` en «Media type».
 
 La primera ejecución crea `autofixpro.db` (SQLite) y carga datos de demostración.
 

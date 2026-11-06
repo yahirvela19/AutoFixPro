@@ -20,6 +20,7 @@ ADR-001 a ADR-004 provienen de la Unidad 3 (`Unidad 3 AutoFixPro/docs/ADR.pdf`) 
 | ADR-012 | Identidad y roles de demostración | Aceptada |
 | ADR-013 | Procesamiento programado del plazo de respuesta | Aceptada |
 | ADR-014 | Interfaz web orientada a la usabilidad | Aceptada |
+| ADR-015 | Respuestas en texto en Swagger con identificadores para continuar | Aceptada |
 
 ---
 
@@ -175,4 +176,17 @@ ADR-001 a ADR-004 provienen de la Unidad 3 (`Unidad 3 AutoFixPro/docs/ADR.pdf`) 
   5. El usuario elige su rol de demostración en un selector visible (ADR-012).
 - **Consecuencias:** La demostración se hace desde la interfaz; Swagger UI queda en `/docs` para la defensa técnica. No se agregan dependencias de JavaScript. El riesgo es duplicar validaciones: se evita porque la interfaz solo llama a los servicios.
 - **Trazabilidad:** US-01 a US-24; requisito de demostración en vivo del PIA.
+
+## ADR-015 — Respuestas en texto en Swagger con identificadores para continuar
+
+- **Estado:** Aceptada.
+- **Contexto:** El profesor pidió que, en la demostración con Swagger, las respuestas se vean como mensajes de confirmación y no como JSON. Al mismo tiempo, para seguir el flujo en Swagger (cotizar, autorizar, iniciar trabajos…) el usuario necesita los identificadores de la orden, la cotización y los trabajos. Las pruebas automatizadas y cualquier otro programa siguen necesitando JSON.
+- **Alternativas:** Cambiar toda la API a texto plano (rompe el contrato JSON y las pruebas); dejar Swagger con JSON; negociación de contenido por el encabezado `Accept`.
+- **Decisión:**
+  1. Cada endpoint responde **texto** si la petición pide `Accept: text/plain` y **JSON** en cualquier otro caso. Los mensajes están en `src/api/mensajes.py`, usan el lenguaje del glosario y terminan con «Para continuar en Swagger:» y los identificadores, con el mismo nombre que los parámetros de Swagger (`orden_id`, `cotizacion_id`, `trabajo_id`…).
+  2. Los errores del negocio responden «No se pudo completar la acción: …» con su código HTTP.
+  3. El contrato OpenAPI declara `text/plain` como primer formato de cada respuesta.
+  4. La página `/docs` fija en `text/plain` el selector «Media type» de cada operación al cargar y, si una petición llega con `*/*`, pide `text/plain`. Si el usuario elige `application/json` en «Media type», se muestra el JSON.
+- **Consecuencias:** En Swagger solo se ven mensajes con los identificadores necesarios. El contrato JSON, las pruebas existentes, el CI y la interfaz web no cambian. Se agregan pruebas del modo texto (`tests/integration/test_api_texto.py`). Los datos de entrada (*Request body*) siguen en JSON, que es propio de Swagger.
+- **Trazabilidad:** US-01 a US-24; requisito de Swagger activo en producción para la demostración.
 

@@ -7,6 +7,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from datetime import date, timedelta
 from decimal import Decimal
 from pathlib import Path
@@ -42,6 +43,10 @@ from src.domain.orden_de_servicio import OrdenDeServicio
 from src.domain.value_objects import Monto, Usuario
 
 plantillas = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
+# La versión de la hoja de estilos cambia cuando cambia su contenido, para que el navegador no use una copia vieja.
+plantillas.env.globals["version_estilos"] = hashlib.sha256(
+    (Path(__file__).parent / "static" / "estilos.css").read_bytes()
+).hexdigest()[:10]
 plantillas.env.trim_blocks = True
 plantillas.env.lstrip_blocks = True
 router = APIRouter(include_in_schema=False)

@@ -152,13 +152,33 @@ def _evidencia_digital(usuario: Usuario, formulario: dict) -> str:
 def inicio(request: Request):
     usuario = _usuario(request)
     if usuario is None:
-        usuarios = [{"token": t, "usuario": u} for t, u in request.app.state.configuracion.tokens.items()]
-        return _pagina(request, "elegir_rol.html", usuarios=usuarios)
+        return _pagina(request, "elegir_rol.html", grupo=None, usuarios=[])
     c = _contenedor(request)
     ordenes = c.listar_ordenes.manejar(usuario)
     activas = [o for o in ordenes if o["estado"] not in ("Cerrado", "Cerrada sin reparación")]
     cerradas = [o for o in ordenes if o not in activas]
     return _pagina(request, "inicio.html", activas=activas, cerradas=cerradas)
+
+
+GRUPOS_DE_ACCESO = {
+    "empleados": ("Empleados del taller", "Elige tu usuario para entrar al sistema del taller."),
+    "clientes": ("Clientes", "Elige tu usuario para consultar tu vehículo y autorizar los trabajos."),
+}
+ROLES_DE_CLIENTE = (Rol.CLIENTE_TITULAR, Rol.RESPONSABLE_DE_CUENTA)
+
+
+@router.get("/acceso/{grupo}", response_class=HTMLResponse)
+def elegir_usuario(request: Request, grupo: str):
+    if grupo not in GRUPOS_DE_ACCESO or _usuario(request) is not None:
+        return RedirectResponse("/", status_code=303)
+    es_cliente = grupo == "clientes"
+    usuarios = [
+        {"token": t, "usuario": u}
+        for t, u in request.app.state.configuracion.tokens.items()
+        if (u.rol in ROLES_DE_CLIENTE) == es_cliente
+    ]
+    titulo, descripcion = GRUPOS_DE_ACCESO[grupo]
+    return _pagina(request, "elegir_rol.html", grupo=titulo, descripcion=descripcion, usuarios=usuarios)
 
 
 @router.post("/sesion")

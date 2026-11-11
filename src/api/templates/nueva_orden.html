@@ -8,14 +8,14 @@
     <label>Cliente
       <select name="cliente_id" required>
         <option value="">Selecciona un cliente…</option>
-        {% for c in clientes %}<option value="{{ c.id }}">{{ c.nombre }} · {{ c.tipo }}{% if c.prioridad_contractual %} · Prioridad contractual{% endif %}</option>{% endfor %}
+        {% for c in clientes %}<option value="{{ c.id }}">{{ c.nombre }} · {{ c.tipo }}{% if c.prioridad_contractual %} · Prioridad{% endif %}</option>{% endfor %}
       </select>
     </label>
   </fieldset>
   <fieldset>
     <legend>Vehículo</legend>
     <div class="campos-4">
-      <label>Placa <input name="placa" required placeholder="SMX-482-A"></label>
+      <label>Placa <input name="placa" id="placa" required placeholder="SMX-482-A" autocomplete="off" autocapitalize="characters" spellcheck="false"></label>
       <label>Marca <input name="marca" required placeholder="Nissan"></label>
       <label>Modelo <input name="modelo" required placeholder="Versa 2019"></label>
       <label>VIN <input name="vin" required placeholder="17 caracteres"></label>
@@ -40,7 +40,7 @@
       <label>Cargo de diagnóstico (MXN) <input name="cargo_diagnostico" type="number" min="0" step="0.01" value="0"></label>
       <label class="casilla"><input type="checkbox" name="cargo_diagnostico_aceptado" value="si"> El cliente acepta el cargo de diagnóstico</label>
     </div>
-    <p class="ayuda">Si el cliente rechaza toda la cotización, solo se cobra el diagnóstico cuando lo aceptó al ingresar (RN-10).</p>
+    <p class="ayuda">Si el cliente rechaza toda la cotización, solo se cobra el diagnóstico cuando lo aceptó al ingresar.</p>
   </fieldset>
   <fieldset>
     <legend>Evidencia fotográfica de ingreso</legend>
@@ -48,4 +48,19 @@
   </fieldset>
   <div class="botones"><button class="boton" type="submit">Registrar ingreso</button> <a class="boton boton-claro" href="/">Cancelar</a></div>
 </form>
+<script>
+  // Mayúsculas y guiones automáticos en la placa: «smx482a» → «SMX-482-A».
+  (function () {
+    const campo = document.getElementById("placa");
+    if (!campo) return;
+    const formatear = (texto, escribiendo) => {
+      const grupos = texto.toUpperCase().split(/[\s._-]+/).flatMap((s) => s.match(/[A-ZÑ]+|\d+/g) || []);
+      let resultado = grupos.join("-");
+      if (escribiendo && resultado && /[\s._-]$/.test(texto)) resultado += "-";
+      return resultado;
+    };
+    campo.addEventListener("input", () => { campo.value = formatear(campo.value, true); });
+    campo.addEventListener("blur", () => { campo.value = formatear(campo.value, false); });
+  })();
+</script>
 {% endblock %}

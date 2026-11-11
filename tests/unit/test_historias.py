@@ -115,6 +115,26 @@ def test_us01_placa_de_otro_cliente_se_rechaza(c):
         ingreso(c, "CLI-002", "SMX-482-A")
 
 
+@pytest.mark.parametrize(
+    ("capturada", "esperada"),
+    [("smx482a", "SMX-482-A"), (" smx 482 a ", "SMX-482-A"), ("nle--118.d", "NLE-118-D"), ("PRU-FLO-1", "PRU-FLO-1")],
+)
+def test_us01_placa_con_mayusculas_y_guiones_automaticos(c, capturada, esperada):
+    nueva = ingreso(c, "CLI-001", capturada)
+    assert c.repos.vehiculos.obtener_por_id(nueva.vehiculo_id).placa == esperada
+
+
+def test_us01_vehiculo_con_orden_en_proceso_no_se_registra_de_nuevo(c):
+    primera = ingreso(c, "CLI-001", "SMX-482-A")
+    with pytest.raises(DatosIncompletos, match="ya está en el taller con la orden OS-0001"):
+        ingreso(c, "CLI-001", "smx-482-a")
+    guardada = orden(c, primera.id)
+    guardada.estado = EstadoOrden.CERRADO
+    c.repos.ordenes.guardar(guardada)
+    segunda = ingreso(c, "CLI-001", "SMX-482-A")
+    assert segunda.vehiculo_id == primera.vehiculo_id and segunda.folio == "OS-0002"
+
+
 # --------------------------------------------------------------------- US-02
 def test_us02_evidencia_fotografica_de_ingreso(c):
     nueva = ingreso(c, foto="frente.jpg")

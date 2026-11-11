@@ -16,7 +16,8 @@ TOKENS_POR_DEFECTO = (
     "gerente-demo:GER-001:Patricia Leal:GERENTE_DEL_TALLER,"
     "cliente-demo:CLI-001:Ana López:CLIENTE_TITULAR,"
     "cliente2-demo:CLI-002:Carlos Ramírez:CLIENTE_TITULAR,"
-    "flotilla-demo:RESP-001:Daniel Ortiz:RESPONSABLE_DE_CUENTA"
+    "flotilla-demo:RESP-001:Daniel Ortiz:RESPONSABLE_DE_CUENTA,"
+    "flotilla2-demo:RESP-002:Mariana Cantú:RESPONSABLE_DE_CUENTA"
 )
 
 

@@ -87,6 +87,7 @@ En la interfaz se elige el rol en la pantalla de inicio. En la API se usa el tok
 | `cliente-demo` | Ana López | Cliente Titular |
 | `cliente2-demo` | Carlos Ramírez | Cliente Titular |
 | `flotilla-demo` | Daniel Ortiz | Responsable de Cuenta (Transportes del Norte) |
+| `flotilla2-demo` | Mariana Cantú | Responsable de Cuenta (Logística Regia) |
 
 ## Guion de demostración (10 minutos)
 

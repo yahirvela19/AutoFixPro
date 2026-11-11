@@ -42,7 +42,7 @@ from src.domain.value_objects import (
     RegistroDeAutorizacion,
     Usuario,
 )
-from src.domain.vehiculo import Vehiculo
+from src.domain.vehiculo import Vehiculo, normalizar_placa
 
 ROLES_DEL_TALLER = frozenset(
     {
@@ -139,13 +139,30 @@ class RegistrarIngresoService(_ServicioBase):
     ) -> OrdenDeServicio:
         requerir_rol(usuario, Rol.ASESOR_DE_SERVICIO)
         cliente = self._cliente(cliente_id)
-        placa_normalizada = str(placa or "").strip().upper()
-        vehiculo = next((v for v in self.repos.vehiculos.listar() if v.placa == placa_normalizada), None)
+        placa_normalizada = normalizar_placa(placa)
+        vehiculo = next(
+            (v for v in self.repos.vehiculos.listar() if normalizar_placa(v.placa) == placa_normalizada), None
+        )
         if vehiculo is None:
             vehiculo = Vehiculo(uuid4().hex[:12], cliente.id, placa, marca, modelo, vin)
             self.repos.vehiculos.guardar(vehiculo)
         elif vehiculo.cliente_id != cliente.id:
             raise DatosIncompletos("Esa placa ya está registrada a nombre de otro cliente.")
+        else:
+            en_proceso = next(
+                (
+                    o
+                    for o in self.repos.ordenes.listar()
+                    if o.vehiculo_id == vehiculo.id
+                    and o.estado not in (EstadoOrden.CERRADO, EstadoOrden.CERRADA_SIN_REPARACION)
+                ),
+                None,
+            )
+            if en_proceso is not None:
+                raise DatosIncompletos(
+                    f"Este vehículo ya está en el taller con la orden {en_proceso.folio} «{en_proceso.estado}». "
+                    "Registra un nuevo ingreso cuando esa orden se cierre."
+                )
         try:
             km = int(kilometraje)
         except (TypeError, ValueError) as exc:

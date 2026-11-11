@@ -1,10 +1,27 @@
 {% extends "base.html" %}
-{% block titulo %}Elige tu rol{% endblock %}
+{% block titulo %}{{ grupo or "Bienvenido" }}{% endblock %}
 {% block contenido %}
+{% if not grupo %}
 <section class="bienvenida">
   <h1>Bienvenido a AutoFix Pro</h1>
-  <p>Sistema de órdenes de servicio del taller. Para la demostración, elige con qué rol quieres trabajar.
-     Cada rol ve únicamente las acciones que le corresponden.</p>
+  <p>Órdenes de servicio del taller. Elige cómo quieres entrar.</p>
+</section>
+<div class="opciones-de-acceso">
+  <a class="opcion-de-acceso" href="/acceso/empleados">
+    <span class="opcion-titulo">Empleados</span>
+    <span class="opcion-descripcion">Recepción, taller, compras, caja y gerencia</span>
+    <span class="boton">Entrar como empleado</span>
+  </a>
+  <a class="opcion-de-acceso" href="/acceso/clientes">
+    <span class="opcion-titulo">Clientes</span>
+    <span class="opcion-descripcion">Consulta el estado de tu vehículo y autoriza los trabajos</span>
+    <span class="boton">Entrar como cliente</span>
+  </a>
+</div>
+{% else %}
+<section class="bienvenida">
+  <h1>{{ grupo }}</h1>
+  <p>{{ descripcion }}</p>
 </section>
 <div class="rejilla-roles">
   {% for opcion in usuarios %}
@@ -16,4 +33,6 @@
   </form>
   {% endfor %}
 </div>
+<p class="volver"><a class="boton boton-claro" href="/">Volver</a></p>
+{% endif %}
 {% endblock %}

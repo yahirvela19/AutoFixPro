@@ -9,7 +9,7 @@
 <body>
   <header class="barra">
     <div class="barra-interior">
-      <a class="marca" href="/"><span class="marca-icono" aria-hidden="true">🔧</span> AutoFix Pro</a>
+      <a class="marca" href="/">AutoFix Pro</a>
       {% if usuario %}
       <nav class="menu" aria-label="Menú principal">
         {% for texto, ruta in navegacion %}<a href="{{ ruta }}">{{ texto }}</a>{% endfor %}
@@ -30,8 +30,5 @@
     {% endif %}
     {% block contenido %}{% endblock %}
   </main>
-  <footer class="pie">
-    AutoFix Pro · Equipo 6 · Componentes de Lógica de Negocio · Datos ficticios de demostración
-  </footer>
 </body>
 </html>

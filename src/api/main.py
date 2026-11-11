@@ -36,7 +36,8 @@ DESCRIPCION = """
 API de **AutoFix Pro** (Equipo 6, PIA de Componentes de Lógica de Negocio).
 
 Identifícate con el botón **Authorize** usando un token de demostración, por ejemplo
-`asesor-demo`, `tecnico-demo`, `compras-demo`, `caja-demo`, `gerente-demo`, `cliente-demo` o `flotilla-demo`.
+`asesor-demo`, `tecnico-demo`, `compras-demo`, `caja-demo`, `gerente-demo`, `cliente-demo`,
+`flotilla-demo` o `flotilla2-demo`.
 En Swagger las respuestas se muestran como **mensajes de texto** con los identificadores para continuar el flujo
 (formato `text/plain`). Para ver el JSON, elige `application/json` en el selector «Media type» de la respuesta.
 Los programas que no piden texto reciben JSON; los errores del negocio responden `{"detalle": "mensaje"}`.

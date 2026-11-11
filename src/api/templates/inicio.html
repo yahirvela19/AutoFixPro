@@ -8,7 +8,7 @@
   {% for o in ordenes %}
     <tr>
       <td><strong>{{ o.folio }}</strong></td>
-      <td>{{ o.cliente }}{% if o.prioridad_contractual %} <span class="etiqueta etiqueta-prioridad">Prioridad contractual</span>{% endif %}</td>
+      <td>{{ o.cliente }}{% if o.prioridad_contractual %} <span class="etiqueta etiqueta-prioridad">Prioridad</span>{% endif %}</td>
       <td>{{ o.vehiculo }}</td>
       <td>{{ o.fecha_ingreso }}</td>
       <td><span class="estado estado-{{ o.estado | estilo }}">{{ o.estado }}</span></td>

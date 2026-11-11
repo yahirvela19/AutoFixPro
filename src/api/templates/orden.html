@@ -90,7 +90,7 @@
   <form method="post" action="/ordenes/{{ orden.id }}/trabajos/{{ p.trabajo.id }}/ampliaciones/{{ p.ampliacion.id }}/decision" class="tarjeta formulario destacado">
     <h3>Autorización digital · Ampliación de «{{ p.trabajo.descripcion }}»</h3>
     <p>Se solicita una ampliación de <strong>{{ p.ampliacion.monto }}</strong>. Motivo: {{ p.ampliacion.motivo }}.</p>
-    <p class="ayuda">Supera el 20 % del total que autorizaste, por eso requiere tu autorización explícita (RN-06).</p>
+    <p class="ayuda">Supera el 20 % del total que autorizaste, por eso requiere tu autorización explícita.</p>
     <div class="decision">
       <label><input type="radio" name="decision" value="autorizar" required> Autorizar la ampliación</label>
       <label><input type="radio" name="decision" value="rechazar"> Rechazar la ampliación</label>
@@ -127,7 +127,7 @@
   {% if a.cotizacion_complementaria %}
   <form method="post" action="/ordenes/{{ orden.id }}/cotizacion-complementaria" class="tarjeta formulario">
     <h3>Generar cotización complementaria</h3>
-    <p class="ayuda">Falla adicional reportada por el Técnico: <strong>{{ orden.fallas_por_cotizar[0] }}</strong>. Todo trabajo nuevo requiere autorización del cliente (RN-05).</p>
+    <p class="ayuda">Falla adicional reportada por el Técnico: <strong>{{ orden.fallas_por_cotizar[0] }}</strong>. Todo trabajo nuevo requiere autorización del cliente.</p>
     {{ filas_trabajo('complementaria') }}
     <button class="boton" type="submit">Enviar cotización complementaria</button>
   </form>
@@ -199,7 +199,7 @@
       <tfoot><tr><td>Total a cobrar</td><td><strong>{{ cobro.total }}</strong></td></tr></tfoot>
     </table>
     </div>
-    <p class="ayuda">Solo aparecen trabajos «Terminado» y el diagnóstico aceptado; lo rechazado o pendiente no se cobra (RN-11).</p>
+    <p class="ayuda">Solo aparecen trabajos «Terminado» y el diagnóstico aceptado; lo rechazado o pendiente no se cobra.</p>
     {% if cobro.es_flotilla and not cobro.rechazo_total %}
       <p>Cliente de flotilla: la orden se cerrará y se incluirá en su facturación consolidada del mes.</p>
       <button class="boton" type="submit">Cerrar orden para facturación consolidada</button>

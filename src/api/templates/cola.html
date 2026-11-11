@@ -2,7 +2,7 @@
 {% block titulo %}Cola de atención{% endblock %}
 {% block contenido %}
 <div class="encabezado-pagina"><h1>Cola de atención</h1></div>
-<p class="ayuda">Órdenes «Recibido» que esperan diagnóstico. Las flotillas con prioridad contractual aparecen primero (US-18).</p>
+<p class="ayuda">Órdenes «Recibido» que esperan diagnóstico. Las flotillas con prioridad aparecen primero.</p>
 {% if ordenes %}
 <div class="tabla-contenedor">
 <table class="tabla">
@@ -10,7 +10,7 @@
   <tbody>
   {% for o in ordenes %}
     <tr><td>{{ loop.index }}</td><td><strong>{{ o.folio }}</strong></td>
-      <td>{{ o.cliente }}{% if o.prioridad_contractual %} <span class="etiqueta etiqueta-prioridad">Prioridad contractual</span>{% endif %}</td>
+      <td>{{ o.cliente }}{% if o.prioridad_contractual %} <span class="etiqueta etiqueta-prioridad">Prioridad</span>{% endif %}</td>
       <td>{{ o.vehiculo }}</td><td>{{ o.fecha_ingreso }}</td>
       <td><a class="boton boton-chico" href="/ordenes/{{ o.id }}">Ver orden</a></td></tr>
   {% endfor %}
